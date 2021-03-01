@@ -31,6 +31,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02.Re-Volt", "02.Re-Volt\02
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Guild", "03. Guild_Skeleton\Guild.csproj", "{41FD0156-95AD-4A09-9D1C-370B30613AE7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.TheFightForGondor", "01.TheFightForGondor\01.TheFightForGondor.csproj", "{62F4740B-E4E2-434B-B714-52CB4638EDA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{41FD0156-95AD-4A09-9D1C-370B30613AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41FD0156-95AD-4A09-9D1C-370B30613AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41FD0156-95AD-4A09-9D1C-370B30613AE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62F4740B-E4E2-434B-B714-52CB4638EDA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62F4740B-E4E2-434B-B714-52CB4638EDA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62F4740B-E4E2-434B-B714-52CB4638EDA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62F4740B-E4E2-434B-B714-52CB4638EDA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
