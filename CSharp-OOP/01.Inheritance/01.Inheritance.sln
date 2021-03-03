@@ -3,21 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoInheritance", "Demo\DemoInheritance.csproj", "{016DD788-EFA5-4D52-9F5F-7108645D36EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoInheritance", "Demo\DemoInheritance.csproj", "{016DD788-EFA5-4D52-9F5F-7108645D36EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomStack", "CustomStack\CustomStack.csproj", "{200DD730-D65D-4C80-AF68-CB9757AEB23F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomStack", "CustomStack\CustomStack.csproj", "{200DD730-D65D-4C80-AF68-CB9757AEB23F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Farm", "Farm\Farm.csproj", "{70C7AB0A-AA36-45F7-BBD5-98C24F33EA15}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Farm", "Farm\Farm.csproj", "{70C7AB0A-AA36-45F7-BBD5-98C24F33EA15}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomRandomList", "CustomRandomList\CustomRandomList.csproj", "{B3F4AA65-F07B-4410-8560-1BA936F822F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomRandomList", "CustomRandomList\CustomRandomList.csproj", "{B3F4AA65-F07B-4410-8560-1BA936F822F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InheritanceLecture", "InheritanceLecture\InheritanceLecture.csproj", "{62A9E6ED-0394-4DB9-A72E-245F6E62754B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BallsGame", "InheritanceLecture\BallsGame.csproj", "{62A9E6ED-0394-4DB9-A72E-245F6E62754B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConstructorInheritance", "ConstructorInheritance\ConstructorInheritance.csproj", "{56475157-82A8-4079-B5EF-D20161DA3615}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConstructorInheritance", "ConstructorInheritance\ConstructorInheritance.csproj", "{56475157-82A8-4079-B5EF-D20161DA3615}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HidingMethods", "HidingMethods\HidingMethods.csproj", "{B2C226F0-28D5-4D1E-943E-CFB0F643B92D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HidingMethods", "HidingMethods\HidingMethods.csproj", "{B2C226F0-28D5-4D1E-943E-CFB0F643B92D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccessModifiers", "AccessModifiers\AccessModifiers.csproj", "{65785CF4-7204-4DD5-BE24-9241E600DF3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccessModifiers", "AccessModifiers\AccessModifiers.csproj", "{65785CF4-7204-4DD5-BE24-9241E600DF3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
