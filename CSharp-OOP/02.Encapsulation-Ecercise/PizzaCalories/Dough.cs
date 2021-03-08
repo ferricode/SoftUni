@@ -6,19 +6,19 @@ namespace PizzaCalories
 {
     public class Dough
     {
-        private const int MinWeigth = 1;
-        private const int MaxWeigth = 200;
+        private const int MinWeight = 1;
+        private const int MaxWeight = 200;
         private string flourType;
         private string bakingTechnique;
-        private int weigth;
+        private int weight;
 
         private const string InvalidDoughExceptionMessage = "Invalid type of dough.";
 
-        public Dough(string flourType, string bakingTechnique, int weigth)
+        public Dough(string flourType, string bakingTechnique, int weight)
         {
             FlourType = flourType;
             BakingTechnique = bakingTechnique;
-            Weigth = weigth;
+            Weight = weight;
         }
 
         public string FlourType
@@ -27,7 +27,7 @@ namespace PizzaCalories
             private set
             {
                 var valueAsLower = value.ToLower();
-                if (valueAsLower != "white" && valueAsLower != "whilegrain")
+                if (valueAsLower != "white" && valueAsLower != "wholegrain")
                 {
                     throw new ArgumentException(InvalidDoughExceptionMessage);
                 }
@@ -49,16 +49,49 @@ namespace PizzaCalories
             }
 
         }
-        public int Weigth
+        public int Weight
         {
-            get => this.weigth;
+            get => this.weight;
             private set
             {
-                if (value<MinWeigth||value>MaxWeigth)
+                if (value < MinWeight || value > MaxWeight)
                 {
-                    throw new ArgumentException($"Dough weight should be in the range [{MinWeigth}..{MaxWeigth}].");
+                    throw new ArgumentException($"Dough weight should be in the range [{MinWeight}..{MaxWeight}].");
                 }
+
+                this.weight = value;
             }
+        }
+        public double GetCalories()
+        {
+            var flourTypeModifier = GetFlourTypeModifier();
+            var bakingTechniqueModifier = GetBackingTechniqueModifier();
+            return Weight * 2 * flourTypeModifier * bakingTechniqueModifier;
+        }
+
+        private double GetBackingTechniqueModifier()
+        {
+            var bakingTechniqueLower = bakingTechnique.ToLower();
+            if (bakingTechniqueLower == "crispy")
+            {
+                return 0.9;
+            }
+            else if (bakingTechniqueLower == "chewy")
+            {
+                return 1.1;
+            }
+
+            return 1.0;
+        }
+
+        private double GetFlourTypeModifier()
+        {
+            var flourTypeLower = flourType.ToLower();
+            if (flourTypeLower == "white")
+            {
+                return 1.5;
+            }
+            return 1.0;
         }
     }
 }
