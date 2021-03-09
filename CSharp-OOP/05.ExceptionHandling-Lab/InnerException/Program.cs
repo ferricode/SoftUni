@@ -6,15 +6,21 @@ namespace InnerException
     {
         static void Main(string[] args)
         {
-            
             try
             {
-                throw new StackOverflowException("Something bad happend");
-            }
-            catch (Exception ex)
-            {
+                try
+                {
+                    throw new StackOverflowException("Something bad happend");
+                }
+                catch (Exception ex)
+                {
 
-                throw new ArgumentException("Somethin happend with your order");
+                    throw new ArgumentException("Somethin happend with your order");
+                }
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.InnerException.Message);
             }
         }
     }

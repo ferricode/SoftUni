@@ -6,12 +6,30 @@ namespace ExceptionsLecture
     {
         static void Main(string[] args)
         {
-            string name = null;
+            int age = 0;
 
-           
-            ArgumentException ex = new ArgumentException("Neshto ne e v red");
+            try
+            {
+                Console.WriteLine("Kolko si dyrt");
+                age = int.Parse(Console.ReadLine());
 
-            Console.WriteLine(ex.Message);
+                if (age<20)
+                {
+                    throw new ArgumentException("Nasha si greshka");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.GetType().ToString());
+                Console.WriteLine("Tolkova li ne mojesh da vavedesh edno chislo????");
+
+                age = int.Parse(Console.ReadLine());
+            }
+
+
+            Console.WriteLine($"{age} - abe dyrt si...");
         }
     }
 }
