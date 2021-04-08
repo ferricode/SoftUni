@@ -9,9 +9,9 @@ namespace Computers.Tests
     {
         private Computer computer;
         private ComputerManager computerManager;
-        private readonly string initialManufacturer= "Apple";
-        private readonly string initialModel= "M1";
-        private readonly decimal initialPrice= 2200.00m;
+        private readonly string initialManufacturer = "Apple";
+        private readonly string initialModel = "M1";
+        private readonly decimal initialPrice = 2200.00m;
 
         [SetUp]
         public void Setup()
@@ -21,11 +21,24 @@ namespace Computers.Tests
         }
 
         [Test]
-        public void CheckIfComputerConstructorWorksCorrectly()
+        public void CheckIfComputerConstructorSetValuesCorectly()
         {
             Assert.AreEqual(initialPrice, computer.Price);
             Assert.AreEqual(initialManufacturer, computer.Manufacturer);
             Assert.AreEqual(initialModel, computer.Model);
+        }
+        [Test]
+        public void CheckIfConstructorWorksCorrectly()
+        {
+            Assert.That(computerManager.Count, Is.EqualTo(0));
+            Assert.That(computerManager.Computers, Is.Empty);
+        }
+        [Test]
+        public void CheckIfCountWorksCorrectly()
+        {
+            computerManager.AddComputer(computer);
+            Assert.That(computerManager.Count, Is.EqualTo(1));
+            Assert.That(computerManager.Computers, Has.Member(computer));
         }
         [Test]
         public void AddComputer_ThrowsException_WhenComputerAlreadyExist()
@@ -41,6 +54,25 @@ namespace Computers.Tests
 
         }
         [Test]
+        public void AddComputer_ThrowsException_WhenComputerIsNull()
+        {
+
+            Exception ex = Assert.Throws<ArgumentNullException>(() =>
+            {
+                computerManager.AddComputer(null);
+
+            }, "Can not be null!");
+
+        }
+        [Test]
+        public void AddComputer_ShouldIncreaseCount_WhenSuccessful()
+        {
+            computerManager.AddComputer(computer);
+
+            Assert.That(computerManager.Count, Is.EqualTo(1));
+            Assert.That(computerManager.Computers, Has.Member(computer));
+        }
+        [Test]
         public void AddComputer_AddsComputer_WhenStillNotExist()
         {
             computerManager.AddComputer(computer);
@@ -54,7 +86,7 @@ namespace Computers.Tests
             computerManager.AddComputer(computer);
             computerManager.RemoveComputer(computer.Manufacturer, computer.Model);
 
-            Assert.IsFalse(computerManager.Computers.Any(c => c.Manufacturer == computer.Manufacturer && c.Model == computer.Model));
+            Assert.That(computerManager.Count,Is.EqualTo(0));
 
         }
         [Test]
@@ -62,18 +94,41 @@ namespace Computers.Tests
         {
             computerManager.AddComputer(computer);
 
-            var result = computerManager.RemoveComputer(computer.Manufacturer, computer.Model);
+            var result = computerManager.RemoveComputer(initialManufacturer, initialModel);
 
             Assert.AreEqual(result, computer);
+            Assert.That(computerManager.Count, Is.EqualTo(0));
 
         }
         [Test]
         public void GetComputer_WhenGetsComputer()
         {
             computerManager.AddComputer(computer);
-            var result = computerManager.GetComputer(computer.Manufacturer, computer.Model);
+            var result = computerManager.GetComputer(initialManufacturer, initialModel);
 
             Assert.AreEqual(result, computer);
+
+        }
+        [Test]
+        public void GetComputer_ThrowsException_WhenManufacturerIsNull()
+        {
+
+            Exception ex = Assert.Throws<ArgumentNullException>(() =>
+            {
+                computerManager.GetComputer(null, initialModel);
+
+            }, "Can not be null!");
+
+        }
+        [Test]
+        public void GetComputer_ThrowsException_WhenModelIsNull()
+        {
+
+            Exception ex = Assert.Throws<ArgumentNullException>(() =>
+            {
+                computerManager.GetComputer(initialManufacturer, null);
+
+            }, "Can not be null!");
 
         }
         [Test]
@@ -102,6 +157,21 @@ namespace Computers.Tests
             Assert.That(collection.Count, Is.EqualTo(2));
 
         }
+        [Test]
+        public void GetComputerByManifacturer_ThrowsException_WhenManufacturerIsNull()
+        {
+
+            Exception ex = Assert.Throws<ArgumentNullException>(() =>
+            {
+                computerManager.GetComputersByManufacturer(null);
+
+            }, "Can not be null!");
+
+        }
+        [Test]
+
+      
+
 
     }
 
