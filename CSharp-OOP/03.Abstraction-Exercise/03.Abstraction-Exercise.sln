@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.30621.155
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PersonInfo", "PersonInfo\PersonInfo.csproj", "{62BFE319-01B8-4029-B0E6-D37F5EB31983}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telephony", "Telephony\Telephony.csproj", "{5DA5979B-A9C2-4EC2-B646-A0010C014F0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Telephony", "Telephony\Telephony.csproj", "{5DA5979B-A9C2-4EC2-B646-A0010C014F0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MilitaryElite", "MilitaryElite\MilitaryElite.csproj", "{C7818B78-B3D1-4F59-BACD-78C9EDBDCAEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5DA5979B-A9C2-4EC2-B646-A0010C014F0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DA5979B-A9C2-4EC2-B646-A0010C014F0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DA5979B-A9C2-4EC2-B646-A0010C014F0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7818B78-B3D1-4F59-BACD-78C9EDBDCAEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7818B78-B3D1-4F59-BACD-78C9EDBDCAEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7818B78-B3D1-4F59-BACD-78C9EDBDCAEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7818B78-B3D1-4F59-BACD-78C9EDBDCAEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
