@@ -18,15 +18,90 @@ namespace _03.AVL
             this.Root = this.Insert(this.Root, item);
         }
 
-        public void Delete(int v)
+        public void Delete(T item)
         {
-            throw new NotImplementedException();
+            this.Root = this.Delete(this.Root, item);
+        }
+
+        private Node<T> Delete(Node<T> node, T value)
+        {
+            if (node == null)
+            {
+                return null;
+            }
+
+            int compare = node.Value.CompareTo(value);
+
+            if (compare > 0)
+            {
+                node.Left = this.Delete(node.Left, value);
+            }
+            else if (compare < 0)
+            {
+                node.Right = this.Delete(node.Right, value);
+            }
+            else
+            {
+                if ((node.Left == null) || (node.Right == null))
+                {
+                    Node<T> temp = null;
+                    temp = node.Left ?? node.Right;
+
+                    if (temp == null)
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        node = temp;
+                    }
+                }
+                else
+                {
+                    Node<T> temp = this.FindMinNode(node.Right);
+                    node.Value = temp.Value;
+                    node.Right = this.Delete(node.Right, temp.Value);
+                }
+            }
+
+            node = this.Balance(node);
+            this.UpdateHeight(node);
+            return node;
+        }
+        private Node<T> FindMinNode(Node<T> node)
+        {
+            var current = node;
+            while (current.Left != null)
+            {
+                current = current.Left;
+            }
+
+            return current;
         }
 
         public void DeleteMin()
         {
-            throw new NotImplementedException();
+            this.Root = this.DeleteMin(this.Root);
         }
+
+        private Node<T> DeleteMin(Node<T> node)
+        {
+            if (node == null)
+            {
+                return null;
+            }
+
+            if (node.Left == null)
+            {
+                return node.Right;
+            }
+
+            node.Left = this.DeleteMin(node.Left);
+            node = this.Balance(node);
+            this.UpdateHeight(node);
+            return node;
+        }
+
 
         public void EachInOrder(Action<T> action)
         {
