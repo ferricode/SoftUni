@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02.VaniPlanning", "02. Vani
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "02.VaniPlanning.Tests", "02. Vani Planning - Correctness_Skeleton\02.VaniPlanning.Tests\02.VaniPlanning.Tests.csproj", "{349C4A05-0A20-4276-B16E-5F64F5BBF1DF}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01.DogVet", "01. Dog Vet - Correctness_Skeleton\01.DogVet\01.DogVet.csproj", "{08CF72A3-E084-4E71-91A2-52E3700DECF8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "01.DogVet.Tests", "01. Dog Vet - Correctness_Skeleton\01.DogVet.Tests\01.DogVet.Tests.csproj", "{9D4893A3-6995-4C8F-85A5-2D7EAAF595A7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{349C4A05-0A20-4276-B16E-5F64F5BBF1DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{349C4A05-0A20-4276-B16E-5F64F5BBF1DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{349C4A05-0A20-4276-B16E-5F64F5BBF1DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08CF72A3-E084-4E71-91A2-52E3700DECF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08CF72A3-E084-4E71-91A2-52E3700DECF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08CF72A3-E084-4E71-91A2-52E3700DECF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08CF72A3-E084-4E71-91A2-52E3700DECF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D4893A3-6995-4C8F-85A5-2D7EAAF595A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D4893A3-6995-4C8F-85A5-2D7EAAF595A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D4893A3-6995-4C8F-85A5-2D7EAAF595A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D4893A3-6995-4C8F-85A5-2D7EAAF595A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
