@@ -13,38 +13,44 @@ namespace SoftUni
         {
             SoftUniContext db = new SoftUniContext();
 
-            //Problem 15
-            //string result = RemoveTown(db);
+            //Problem 03
+            //string result =GetEmployeesFullInformation(db);
 
-            //Problem 12
-            //string result = IncreaseSalaries(db);
+            //Problem 04
+            //string result = GetEmployeesWithSalaryOver50000(db);
 
+            //Problem 05
+            //string result = GetEmployeesFromResearchAndDevelopment(db);
+
+            //Problem 06
+            //string result = AddNewAddressToEmployee(db);
+
+            //Problem 07
+            // string result = GetEmployeesInPeriod(db);
+
+            //Problem 08
+            //string result = GetAddressesByTown(db);
 
             //Problem 09
-
             //string result = GetEmployee147(db);
+
             //Problem 10
             //string result = GetDepartmentsWithMoreThan5Employees(db);
 
             //Problem 11
             //string result = GetLatestProjects(db);
 
+            //Problem 12
+            //string result = IncreaseSalaries(db);
+
             //Problem 13
             //string result = GetEmployeesByFirstNameStartingWithSa(db);
-            string result = DeleteProjectById(db);
 
             //Problem 14
-
-            //Problem 07
-            // string result = GetEmployeesInPeriod(db);
-            //Problem 06
-            //string result = AddNewAddressToEmployee(db);
-
-            //Problem 05
-            //string result = GetEmployeesFromResearchAndDevelopment(db);
-
-            //Problem 04
-            //string result = GetEmployeesWithSalaryOver50000(db);
+            string result = DeleteProjectById(db);
+            //Problem 15
+            //string result = RemoveTown(db);
+            
             Console.WriteLine(result);
         }
         //Problem 03
