@@ -9,11 +9,18 @@ namespace BasicWebServer.Server.Common
     public class ServiceCollection : IServiceCollection
     {
         private readonly Dictionary<Type, Type> services;
+
+        public ServiceCollection()
+        {
+            services = new Dictionary<Type, Type>();
+        }
+
         public IServiceCollection Add<TService, TImplementation>()
             where TService : class
             where TImplementation : TService
         {
-            services[typeof(TService)]=typeof(TImplementation);
+            services[typeof(TService)] = typeof(TImplementation);
+
             return this;
         }
 
@@ -30,22 +37,24 @@ namespace BasicWebServer.Server.Common
             }
             else if (serviceType.IsInterface)
             {
-                throw new InvalidOperationException($"Service type {serviceType.FullName} is not registered");
+                throw new InvalidOperationException($"Service {serviceType.FullName} is not registered");
             }
+
             var constructors = serviceType.GetConstructors();
 
             if (constructors.Length > 1)
             {
                 throw new InvalidOperationException("Multiple constructors are not supported");
             }
-            var constructor = constructors.FirstOrDefault();
-            var parameters=constructor.GetParameters();
-            var parameterValues=new object[parameters.Length];
+
+            var constructor = constructors.First();
+            var parameters = constructor.GetParameters();
+            var parameterValues = new object[parameters.Length];
 
             for (int i = 0; i < parameterValues.Length; i++)
             {
                 var parameterType = parameters[i].ParameterType;
-                var parameterValue= CreateInstance(parameterType);
+                var parameterValue = CreateInstance(parameterType);
 
                 parameterValues[i] = parameterValue;
             }
@@ -55,7 +64,7 @@ namespace BasicWebServer.Server.Common
 
         public TService Get<TService>() where TService : class
         {
-           var serviceType=typeof(TService);
+            var serviceType = typeof(TService);
 
             if (!services.ContainsKey(serviceType))
             {
@@ -64,7 +73,7 @@ namespace BasicWebServer.Server.Common
 
             var service = services[serviceType];
 
-            return (TService)CreateInstance(service );
+            return (TService)CreateInstance(service);
         }
     }
 }

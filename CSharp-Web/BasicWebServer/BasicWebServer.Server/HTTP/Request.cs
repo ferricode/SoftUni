@@ -62,12 +62,9 @@ namespace BasicWebServer.Server.HTTP
 
             var parts = queryStrign.Split("?");
 
-            if (parts.Length == 1)
+            if (parts.Length > 1)
             {
-                url = parts[0];
-            }
-            else
-            {
+
                 var queryParams = parts[1].Split("&");
                 foreach (var pair in queryParams)
                 {
@@ -78,6 +75,8 @@ namespace BasicWebServer.Server.HTTP
                     }
                 }
             }
+
+            url = parts[0];
             return (url, query);
         }
 

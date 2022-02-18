@@ -1,5 +1,6 @@
 ﻿
 using BasicWebServer.Demo.Models;
+using BasicWebServer.Server.Attributes;
 using BasicWebServer.Server.Controllers;
 using BasicWebServer.Server.HTTP;
 using System.Text;
@@ -17,13 +18,17 @@ namespace BasicWebServer.Demo.Controllers
         {
 
         }
+        [HttpGet]
         public Response Index() => Text("Hello from the server!");
+        public Response Student(string name, int age) => Text($"I'm {name} and I'm {age} years old.");
 
+        [HttpGet]
         public Response Redirect()
        => Redirect("https://softuni.org");
+        [HttpGet]
+        public Response Html() => View();
 
-        internal Response Html() => View();
-
+        [HttpPost]
         public Response HtmlFormPost()
         {
             string name=Request.Form["Name"];
@@ -38,6 +43,7 @@ namespace BasicWebServer.Demo.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public Response Cookies()
         {
 
@@ -82,7 +88,8 @@ namespace BasicWebServer.Demo.Controllers
             return Html(bodyText, cookies);
         }
 
-        internal Response Session()
+        [HttpGet]
+        public Response Session()
         {
             var sessionExists = Request.Session
                .ContainsKey(Server.HTTP.Session.SessionCurrentDateKey);
@@ -103,7 +110,9 @@ namespace BasicWebServer.Demo.Controllers
             return Text(bodyText);
         }
 
+        [HttpGet]
         public Response Content() => View();
+        [HttpGet]
         public Response DownloadContent() => File(FileName);
 
     }
