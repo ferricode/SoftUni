@@ -27,7 +27,7 @@ namespace Warehouse.Core.CustomAttributes
                     return ValidationResult.Success;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {}
 
             return new ValidationResult(ErrorMessage);
