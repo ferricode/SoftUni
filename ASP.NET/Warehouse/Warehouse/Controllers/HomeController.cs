@@ -6,7 +6,7 @@ using Warehouse.Models;
 
 namespace Warehouse.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         private readonly ILogger<HomeController> _logger;
 
@@ -18,6 +18,7 @@ namespace Warehouse.Controllers
         public IActionResult Index()
         {
             ViewData[MessageConstant.SuccessMessage] = "Браво, успяхме да подкараме тостера!";
+
             return View();
         }
 
@@ -31,12 +32,5 @@ namespace Warehouse.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-       /* public override async Task OnActionExecutinAsync(ActionExecutingContext context, ActionExecutionDelegate next)
-        {
-            //Executing
-            var executedContext=await next();
-
-            //Executed
-        }*/
     }
 }
