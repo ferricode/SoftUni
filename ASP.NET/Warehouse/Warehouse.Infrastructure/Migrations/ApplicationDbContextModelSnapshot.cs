@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Warehouse.Infrastructure.Data;
 
 namespace Warehouse.Infrastructure.Data.Migrations
 {
