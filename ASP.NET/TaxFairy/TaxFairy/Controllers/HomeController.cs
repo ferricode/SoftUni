@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using TaxFairy.Core.Constants;
 using TaxFairy.Models;
 
 namespace TaxFairy.Controllers
@@ -8,6 +9,8 @@ namespace TaxFairy.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
+
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
@@ -15,6 +18,7 @@ namespace TaxFairy.Controllers
 
         public IActionResult Index()
         {
+            ViewData[MessageConstant.SuccessMessage] = "Феята е готова да помогне за данъчните и финансови предизвикателства :)";
             return View();
         }
 
