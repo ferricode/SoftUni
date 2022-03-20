@@ -4,12 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaxFairy.Infrastructure.Data
+namespace TaxFairy.Infrastructure.Data.Enums
 {
-    public enum InvoiceType
+    public enum PaymentType
     {
-        Invoice=0,  
-        CreditNote=1,
-        DebitNote=2
+        Cash=0,
+        BankPayment=1
     }
 }
