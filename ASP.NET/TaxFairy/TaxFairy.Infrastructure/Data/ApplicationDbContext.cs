@@ -9,5 +9,14 @@ namespace TaxFairy.Infrastructure.Data
             : base(options)
         {
         }
+
+        public DbSet<BankDetails> BankDetails { get; set; }
+        public DbSet<Contragent> Contragents { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
+        public DbSet<InvoiceDetails> InvoiceDetails { get; set; }
+        public DbSet<Vendor> Vendors { get; set; }
+        public DbSet<News> News { get; set; }
+
+
     }
 }
