@@ -1,18 +1,30 @@
-
 using Microsoft.AspNetCore.Identity;
 using Warehouse.Core.Constants;
 using Warehouse.Infrastructure.Data;
+using Warehouse.Infrastructure.Data.Identity;
 using Warehouse.ModelBinders;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddApplicationDbContexts(builder.Configuration);
-
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = true;
+})
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+//TODO: sign in with externel user
+//builder.Services.AddAuthentication()
+//    .AddFacebook(options =>
+//    {
+//        options.AppId = builder.Configuration.GetValue<string>("Facebook:AppId");
+//        options.AppSecret = builder.Configuration.GetValue<string>("Facebook:AppSecret");
+//    });
+
 builder.Services.AddControllersWithViews()
-    .AddMvcOptions(options=>
+    .AddMvcOptions(options =>
     {
         options.ModelBinderProviders.Insert(0, new DecimalModelBinderProvider());
         options.ModelBinderProviders.Insert(1, new DateTimeModelBinderProvider(FormatingConstant.NormalDateFormat));
@@ -26,7 +38,6 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseDeveloperExceptionPage();
     app.UseMigrationsEndPoint();
 }
 else
@@ -45,8 +56,16 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
+    name: "Area",
+    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 app.MapRazorPages();
 
 app.Run();
+
+
+
+
+

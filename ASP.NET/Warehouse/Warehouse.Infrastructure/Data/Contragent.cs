@@ -11,6 +11,10 @@ namespace Warehouse.Infrastructure.Data
     {
         [Key]
         public Guid Id { get; set; } = Guid.NewGuid();
+        
+        [Required]
+        [StringLength(20)]
+        public string CustomerNumber { get; set; }
 
         [Required]
         [StringLength(200)]
