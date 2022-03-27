@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TaxFairy.Infrastructure.Data.Migrations
 {
-    public partial class DataModelsAddedNew : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,14 +13,14 @@ namespace TaxFairy.Infrastructure.Data.Migrations
                 name: "Contragents",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 40, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Identifier = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     TaxIdentifier = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     АccountablePerson = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: true),
-                    Address = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true)
+                    Email = table.Column<string>(type: "nvarchar(350)", maxLength: 350, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -31,8 +31,8 @@ namespace TaxFairy.Infrastructure.Data.Migrations
                 name: "News",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Content = table.Column<string>(type: "nvarchar(max)", maxLength: 5000, nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 40, nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     IssueDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
@@ -44,14 +44,14 @@ namespace TaxFairy.Infrastructure.Data.Migrations
                 name: "Vendors",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 40, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Identifier = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     TaxIdentifier = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     АccountablePerson = table.Column<string>(type: "nvarchar(60)", maxLength: 60, nullable: false),
-                    Address = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(16)", maxLength: 16, nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true)
+                    Email = table.Column<string>(type: "nvarchar(350)", maxLength: 350, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -62,7 +62,7 @@ namespace TaxFairy.Infrastructure.Data.Migrations
                 name: "BankDetails",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 40, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Iban = table.Column<string>(type: "nvarchar(35)", maxLength: 35, nullable: false),
                     Bic = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
@@ -82,8 +82,8 @@ namespace TaxFairy.Infrastructure.Data.Migrations
                 name: "Invoices",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    InvoiceNumber = table.Column<int>(type: "int", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 40, nullable: false),
+                    InvoiceNumber = table.Column<long>(type: "bigint", nullable: false),
                     InvoiceType = table.Column<int>(type: "int", nullable: false),
                     IssueDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     NetPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
@@ -114,11 +114,11 @@ namespace TaxFairy.Infrastructure.Data.Migrations
                 name: "InvoiceDetails",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    Id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 40, nullable: false),
                     ItemName = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
-                    TaxPercentage = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TaxPercentage = table.Column<int>(type: "int", nullable: false),
                     TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     InvoiceId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
                 },

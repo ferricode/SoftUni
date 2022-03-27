@@ -5,38 +5,41 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaxFairy.Infrastructure.Data
+namespace TaxFairy.Infrastructure.Data.Models
 {
+    using static DataConstants;
     public class Contragent
     {
 
         [Key]
+        [MaxLength(IdMaxLength)]
+
         public Guid Id { get; set; } = Guid.NewGuid();
 
         [Required]
-        [StringLength(200)]
+        [StringLength(NameLength)]
         public string Name { get; set; }
 
         [Required]
-        [StringLength(20)]
+        [StringLength(IdentifierLength)]
         public string Identifier { get; set; }
 
         [Required]
-        [StringLength(20)]
+        [StringLength(TaxIdentifierLength)]
         public string? TaxIdentifier { get; set; }
 
-        [StringLength(60)]
+        [StringLength(AccountablePersonLength)]
         public string? АccountablePerson { get; set; }
 
         [Required]
-        [StringLength(200)]
+        [StringLength(AddressLength)]
         public string Address { get; set; }
 
 
-        [StringLength(16)]
+        [StringLength(PhoneNumberLength)]
         public string? PhoneNumber { get; set; }
 
-        [StringLength(50)]
+        [StringLength(EmailLength)]
         public string? Email { get; set; }
     }
 }

@@ -5,15 +5,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaxFairy.Infrastructure.Data
+namespace TaxFairy.Infrastructure.Data.Models
 {
+    using static DataConstants;
     public class News
     {
         [Key]
+        [MaxLength(IdMaxLength)]
         public Guid Id { get; set; } = Guid.NewGuid();
 
         [Required]
-        [StringLength(5000)]
         public string Content { get; set; }
 
         [Required]

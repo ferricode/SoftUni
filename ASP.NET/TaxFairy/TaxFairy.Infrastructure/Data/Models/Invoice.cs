@@ -2,15 +2,18 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using TaxFairy.Infrastructure.Data.Enums;
 
-namespace TaxFairy.Infrastructure.Data
+namespace TaxFairy.Infrastructure.Data.Models
 {
+    using static DataConstants;
     public class Invoice
     {
         [Key]
+        [MaxLength(IdMaxLength)]
         public Guid Id { get; set; } = Guid.NewGuid();
 
         [Required]
-        public int InvoiceNumber { get; set; }
+        [Range(InvoiceNumberMin,InvoiceNumberMax)]
+        public long InvoiceNumber { get; set; }
 
         [Required]
         public InvoiceType InvoiceType { get; set; }

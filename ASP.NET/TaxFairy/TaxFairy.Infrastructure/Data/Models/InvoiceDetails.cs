@@ -4,12 +4,15 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TaxFairy.Infrastructure.Data.Enums;
 
-namespace TaxFairy.Infrastructure.Data
+namespace TaxFairy.Infrastructure.Data.Models
 {
+    using static DataConstants;
     public class InvoiceDetails
     {
         [Key]
+        [MaxLength(IdMaxLength)]
         public Guid Id { get; set; } = Guid.NewGuid();
 
         [Required]
@@ -21,8 +24,9 @@ namespace TaxFairy.Infrastructure.Data
 
         [Required]
         public int Quantity{ get; set; }
+
         [Required]
-        public decimal TaxPercentage { get; set; }
+        public TaxPercentage TaxPercentage { get; set; }
 
         [Required]
         public decimal TotalPrice { get; set; }

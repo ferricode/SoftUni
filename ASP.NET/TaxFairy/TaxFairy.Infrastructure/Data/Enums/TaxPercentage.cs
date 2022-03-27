@@ -7,12 +7,14 @@ using System.Threading.Tasks;
 
 namespace TaxFairy.Infrastructure.Data.Enums
 {
-    public enum PaymentType
+    public enum TaxPercentage
     {
-        [Description("В брой")]
-        Cash,
+        [Description("0%")]
+        _0,
+        [Description("9%")]
+        _9,
+        [Description("20%")]
+        _20
 
-        [Description("По банка")]
-        BankPayment
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using TaxFairy.Infrastructure.Data.Enums;
+using TaxFairy.Infrastructure.Data.Models;
 
 namespace TaxFairy.Infrastructure.Data
 {
@@ -16,6 +18,7 @@ namespace TaxFairy.Infrastructure.Data
         public DbSet<InvoiceDetails> InvoiceDetails { get; set; }
         public DbSet<Vendor> Vendors { get; set; }
         public DbSet<News> News { get; set; }
+
 
 
     }
