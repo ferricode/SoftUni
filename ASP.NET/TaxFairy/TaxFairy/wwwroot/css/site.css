@@ -18,7 +18,12 @@ body {
 }
 
 div.content-wrapper {
-    background-color: darkgrey;
+    background-color: lightgray;
     
+}
+
+.menu-item-icons {
+    margin-left: 20px;
+  
 }
 
