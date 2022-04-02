@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Filters;
 using System.Diagnostics;
 using Warehouse.Core.Constants;
 using Warehouse.Models;
