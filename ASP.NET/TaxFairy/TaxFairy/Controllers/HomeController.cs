@@ -18,7 +18,7 @@ namespace TaxFairy.Controllers
 
         public IActionResult Index()
         {
-            ViewData[MessageConstant.SuccessMessage] = "Феята е готова да помогне за данъчните и финансови предизвикателства :)";
+            ViewData[MessageConstant.SuccessMessage] = "Феята е готова да помогне с данъчните и финансови предизвикателства :)";
             return View();
         }
 
