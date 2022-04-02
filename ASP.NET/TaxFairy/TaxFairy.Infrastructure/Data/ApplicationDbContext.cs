@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using TaxFairy.Infrastructure.Data.Enums;
 using TaxFairy.Infrastructure.Data.Models;
 
 namespace TaxFairy.Infrastructure.Data
