@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Warehouse.Core.Models
+﻿namespace Warehouse.Core.Models
 {
     /// <summary>
     /// Поръчан продукт
@@ -19,5 +13,8 @@ namespace Warehouse.Core.Models
         /// Брой поръчани продукти
         /// </summary>
         public int Count { get; set; }
+
+
+
     }
 }
