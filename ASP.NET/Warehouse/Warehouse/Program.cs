@@ -14,6 +14,7 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options =>
 })
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+   
 
 //TODO: sign in with externel user
 //builder.Services.AddAuthentication()
