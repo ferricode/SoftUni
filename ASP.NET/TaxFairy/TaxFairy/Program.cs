@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using TaxFairy.Core.Constants;
 using TaxFairy.Infrastructure.Data;
 using TaxFairy.Infrastructure.Data.Identity;
@@ -12,7 +12,10 @@ builder.Services.AddApplicationDbContexts(builder.Configuration);
 
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+
 builder.Services.AddControllersWithViews()
 .AddMvcOptions(options =>
      {
