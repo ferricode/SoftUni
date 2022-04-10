@@ -1,14 +1,22 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TaxFairy.Infrastructure.Data;
+using TaxFairy.Infrastructure.Data.Models;
 
 namespace TaxFairy.Controllers
 {
     public class InvoiceController : Controller
     {
+        private readonly ApplicationDbContext context;
+        public InvoiceController(ApplicationDbContext _context)
+        {
+            context = _context;
+        }
         // GET: InvoiceController
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<Invoice> InvoiceList = context.Invoices.ToList();
+            return View(InvoiceList);
         }
 
         // GET: InvoiceController/Details/5

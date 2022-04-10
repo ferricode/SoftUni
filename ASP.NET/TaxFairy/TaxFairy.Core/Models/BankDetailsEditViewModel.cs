@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TaxFairy.Core.Contracts;
 
-namespace TaxFairy.Core.Services
+namespace TaxFairy.Core.Models
 {
-    public class InvoiceService:IInvoiceService
+    public class BankDetailsEditViewModel
     {
-
-
     }
 }
