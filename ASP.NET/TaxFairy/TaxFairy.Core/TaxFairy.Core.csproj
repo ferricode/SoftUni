@@ -10,8 +10,4 @@
     <ProjectReference Include="..\TaxFairy.Infrastructure\TaxFairy.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
 </Project>
