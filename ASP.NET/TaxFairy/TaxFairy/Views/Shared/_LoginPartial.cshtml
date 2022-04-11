@@ -5,7 +5,7 @@
     @if (User.Identity?.IsAuthenticated ?? false)
     {
         <li class="nav-item">
-            <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
+            <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Здравей @User.Identity?.Name!</a>
         </li>
     }
     else
@@ -14,7 +14,7 @@
             <a class="nav-link " asp-area="Identity" asp-page="/Account/Register">
                 <i class="fas fa-dharmachakra menu-item-icons"></i>
                 <p>
-                    &nbsp;&nbsp;   Register
+                    &nbsp;&nbsp;   Регистрация
                 </p>
             </a>
         </li>
@@ -22,7 +22,7 @@
             <a class="nav-link menu-item-icons" asp-area="Identity" asp-page="/Account/Login">
                 <i class="fas fa-dove menu-item-icons"></i>
                 <p>
-                    &nbsp;&nbsp;  Login
+                    &nbsp;&nbsp;  Вписване
                 </p>
             </a>
         </li>
