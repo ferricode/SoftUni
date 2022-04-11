@@ -1,12 +1,15 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using TaxFairy.Infrastructure.Data.Identity
 
+
 <ul class="navbar-nav nav-pills nav-sidebar">
     @if (User.Identity?.IsAuthenticated ?? false)
     {
-        <li class="nav-item">
-            <a class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Здравей @User.Identity?.Name!</a>
-        </li>
+
+             <li class="info">
+          <a href="#" class="d-block">Здравей  @User.Identity?.Name!</a>
+            </li> 
+ 
     }
     else
     {

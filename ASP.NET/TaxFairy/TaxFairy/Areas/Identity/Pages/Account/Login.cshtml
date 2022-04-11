@@ -2,11 +2,11 @@
 @model LoginModel
 
 @{
-    ViewData["Title"] = "Log in";
+    ViewData["Title"] = "Вход като потребител";
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,7 +29,7 @@
         <!-- /.login-logo -->
         <div class="card">
             <div class="card-body login-card-body">
-                <p class="login-box-msg">Sign in here</p>
+                <p class="login-box-msg">Вход за потребители</p>
 
                 <form id="account" method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -56,7 +56,7 @@
                     </div>
                     <div>
                         <div>
-                            <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-success">Log in</button>
+                            <button id="login-submit" type="submit" class="w-100 btn btn-lg btn-success">Вход</button>
                         </div>
                     </div>
                     <div>
@@ -75,10 +75,10 @@
                     <!-- /.social-auth-links -->*@
 
                 <p class="mb-1">
-                    <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                    <a id="forgot-password" asp-page="./ForgotPassword">Забравена парола?</a>
                 </p>
                 <p class="mb-0">
-                    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                    <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Регистриране като нов потребител</a>
                 </p>
             </div>
             <!-- /.card-body -->
