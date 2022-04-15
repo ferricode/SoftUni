@@ -15,7 +15,7 @@ namespace TaxFairy.Controllers
         // GET: InvoiceController
         public ActionResult Index()
         {
-            IEnumerable<Invoice> InvoiceList = context.Invoices.ToList();
+            
             return View(InvoiceList);
         }
 

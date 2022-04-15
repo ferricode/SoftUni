@@ -10,60 +10,66 @@
     <div class="row pt-4">
         <div class="col-6">
             <h2 class="text-success">Издадени фактури от:</h2>
-		</div>
+        </div>
         <div class="col-6 text-end">
             <a asp-controller="Invoice" asp-action="Create" class="btn btn-success">
-               <i class="bi bi-plus-circle"></i> &nbsp; Създай нова фактура
-			</a>
-		</div>
-	</div>
+                <i class="bi bi-plus-circle"></i> &nbsp; Създай нова фактура
+            </a>
+        </div>
+    </div>
     <br /><br />
 
-<table class="table table-bordered table-striped" style="width:100%">
-    <thead>
-        <tr>
-            <th>
-               Фактура номер
-			</th>
-             <th>
-               Дата на издаване
-			</th>
-            <th>
-                Издадена на
-			</th>
-             <th>
-               Сума
-			</th>
-            <th></th>
-		</tr>
-	</thead>
-    <tbody>
-        @foreach(var obj in Model)
-        {
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
             <tr>
-                <td width="25%">
-                    @obj.InvoiceNumber
-				</td>
-                <td width="10%">
-                    @obj.IssueDate
-				</td>
-                <td width="25%">
-                    @obj.Contragent
-				</td>
-                <td width="10%">
-                    @obj.TotalPrice
-				</td>
-                <td>
-                    <div class="w-75 btn-group" role="group">
-                        <a asp-controller="Invoice" asp-action="Edit" asp-route-id="@obj.Id"
-                        class="btn btn-success mx-2"> <i class="bi bi-pencil-square"></i> Edit</a>
-                        <a asp-controller="Invoice" asp-action="Delete" asp-route-id="@obj.Id"
-                        class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i> Delete</a>
-					</div>
-				</td>
-			</tr>
-        }
-    </tbody>
+                <th>
+                    Тип на документа
+                </th>
+                <th>
+                    Фактура номер
+                </th>
+                <th>
+                    Дата на издаване
+                </th>
+                <th>
+                    Издадена на
+                </th>
+                <th>
+                    Сума
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var obj in Model)
+            {
+                <tr>
+                     <td width="25%">
+                        @obj.InvoiceNumber
+                    </td>
+                    <td width="25%">
+                        @obj.InvoiceNumber
+                    </td>
+                    <td width="10%">
+                        @obj.IssueDate
+                    </td>
+                    <td width="25%">
+                        @obj.Contragent
+                    </td>
+                    <td width="10%">
+                        @obj.TotalPrice
+                    </td>
+                    <td>
+                        <div class="w-75 btn-group" role="group">
+                            <a asp-controller="Invoice" asp-action="Edit" asp-route-id="@obj.Id"
+                           class="btn btn-success mx-2"> <i class="bi bi-pencil-square"></i> Edit</a>
+                            <a asp-controller="Invoice" asp-action="Delete" asp-route-id="@obj.Id"
+                           class="btn btn-danger mx-2"> <i class="bi bi-trash-fill"></i> Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
 
-</table>
+    </table>
 </div>

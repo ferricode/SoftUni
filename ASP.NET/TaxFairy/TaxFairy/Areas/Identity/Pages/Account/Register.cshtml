@@ -10,7 +10,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewData["Title"]</title>
-
+    	
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -19,16 +19,17 @@
     <link rel="stylesheet" href="~/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="~/css/adminlte.min.css">
+     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body class="hold-transition register-page">
     <div class="register-box">
         <div class="register-logo">
-            <a href="/"><b>TaxFairy</b></a>
+            <a href="/" class="shadow-taxfairy-green"><b>TaxFairy</b></a>
         </div>
         <!-- /.register-logo -->
         <div class="card">
             <div class="card-body register-card-body">
-                <p class="login-box-msg">Създай профил.</p>
+                <p class="login-box-msg">Създай потребител</p>
 
                 <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -49,7 +50,7 @@
                     </div>
                     <p>
                         <div>
-                            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-success">Регистриране</button>
+                            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-success">Регистрирай</button>
                         </div>
                     </p>
 

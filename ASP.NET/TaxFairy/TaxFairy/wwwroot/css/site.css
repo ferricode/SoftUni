@@ -24,6 +24,15 @@ div.content-wrapper {
 .menu-item-icons {
     margin-left: 20px;
 }
-[class*=sidebar-dark-] {
-    background-color: darkolivegreen;
+
+.shadow-taxfairy-green {
+    font-family: "Georgia", Times, serif;
+    color: #478778;
+    text-shadow: 1px 1px 0 #000000;
+}
+
+.shadow-taxfairy-yellow {
+    font-family: "Garamond", Times, serif;
+    color: lightgoldenrodyellow;
+    text-shadow: 1px 1px 0 #000000;
 }
