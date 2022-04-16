@@ -9,8 +9,8 @@ using TaxFairy.Infrastructure.Data.Identity;
 
 namespace TaxFairy.Areas.Admin.Controllers
 {
-    [Authorize(Roles = UserConstants.Roles.Administrator)]
-    [Area("Admin")]
+   [Authorize(Roles = UserConstants.Roles.Administrator)]
+   [Area("Admin")]
     public class UserController:Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;
@@ -86,11 +86,11 @@ namespace TaxFairy.Areas.Admin.Controllers
             return View(model);
 
         }
-        public async Task<IActionResult> CreateRole()
+        public async Task<IActionResult> CreateRole(string roleName)
         {
             await roleManager.CreateAsync(new IdentityRole()
             {
-                Name = "HouseKeeper"
+                Name = roleName
             });
 
             return Ok();

@@ -36,4 +36,8 @@
     <None Include="Areas\Admin\Views\User\Roles.cshtml" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Views\Privacy\" />
+  </ItemGroup>
+
 </Project>

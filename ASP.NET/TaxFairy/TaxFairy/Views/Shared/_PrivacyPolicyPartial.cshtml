@@ -1,0 +1,15 @@
+﻿<nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        @if (!User.IsInRole("Administrator"))
+        {
+            <li class="nav-item">
+                <a href="/Home/Privacy" class="nav-link">
+                    <i class="fas fa-suitcase"></i>
+                    <p>
+                        &nbsp;&nbsp; Политика за защита на личните данни
+                    </p>
+                </a>
+            </li>
+        }
+    </ul>
+</nav>
