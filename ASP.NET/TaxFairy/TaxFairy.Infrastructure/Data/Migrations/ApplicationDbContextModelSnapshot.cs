@@ -400,6 +400,25 @@ namespace TaxFairy.Infrastructure.Data.Migrations
                     b.ToTable("News");
                 });
 
+            modelBuilder.Entity("TaxFairy.Infrastructure.Data.Models.PrivacyPolicy", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(40)
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PrivacyPolicies");
+                });
+
             modelBuilder.Entity("TaxFairy.Infrastructure.Data.Models.Vendor", b =>
                 {
                     b.Property<Guid>("Id")
