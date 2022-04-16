@@ -24,7 +24,9 @@ div.content-wrapper {
 .menu-item-icons {
     margin-left: 20px;
 }
-
+[class*=sidebar-dark-] {
+    background-color: darkolivegreen;
+}
 .shadow-taxfairy-green {
     font-family: "Georgia", Times, serif;
     color: #478778;

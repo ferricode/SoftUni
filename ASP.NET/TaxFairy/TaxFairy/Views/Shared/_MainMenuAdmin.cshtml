@@ -1,0 +1,43 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TaxFairy.Infrastructure.Data.Identity
+
+
+<nav class="mt-2">
+    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+       @if(User.IsInRole("Administrator"))
+       {
+        <li class="nav-item">
+            <a href="@Url.Action("Index", "Home", new { area = "Admin" })" method="post" class="nav-link">
+                <i class="fas fa-chess-rook"></i>
+                <p>
+                    &nbsp;&nbsp; Начало
+                </p>
+            </a>
+        </li>
+         <li class="nav-item">
+            <a href="@Url.Action("ManageUsers", "User", new { area = "Admin" })" method="post" class="nav-link">
+                <i class="fas fa-feather"></i>
+                <p>
+                    &nbsp;&nbsp;Управление на потребители
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="@Url.Action("ManageUsers", "User", new { area = "Admin" })" method="post" class="nav-link">
+                <i class="fas fa-feather"></i>
+                <p>
+                    &nbsp;&nbsp;Управление на новини
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="@Url.Action("ManageUsers", "User", new { area = "Admin" })" method="post" class="nav-link">
+                <i class="fas fa-feather"></i>
+                <p>
+                    &nbsp;&nbsp;Управление на политики за защита на лични данни.
+                </p>
+            </a>
+        </li>
+       }
+    </ul>
+</nav>

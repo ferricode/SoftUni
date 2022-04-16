@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+    <html lang="bg">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="~/plugins/toastr/toastr.min.css" />
 
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-       <link rel="icon" href="@Url.Content("~/taxFairy3.ico")"/>
+    <link rel="icon" href="@Url.Content("~/taxFairy3.ico")" />
     @await RenderSectionAsync("Head", false)
 </head>
 <body class="hold-transition sidebar-mini">
@@ -28,8 +28,8 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                   <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post">
-                       <i class="fas fa-dungeon"></i>
+                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post">
+                        <i class="fas fa-dungeon"></i>
                         <button type="submit" class="nav-link btn btn-link text-dark">Изход</button>
                     </form>
                 </li>
@@ -50,12 +50,17 @@
             </a>
 
             <!-- Sidebar -->
+
             <div class="sidebar">
                 <partial name="_LoginPartial" />
 
                 <!-- Sidebar Menu -->
                 <partial name="_MainMenu" />
                 <!-- /.sidebar-menu -->
+
+                <!-- /.sidebar-menu-admin -->
+                <partial name="_MainMenuAdmin" />
+                <!-- /.sidebar-menu-admin -->
             </div>
             <!-- /.sidebar -->
         </aside>
@@ -72,7 +77,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item accent-green"><a href="#">Начална страница</a></li>
-                           </ol>
+                            </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -91,10 +96,9 @@
         <footer class="main-footer">
             <!-- To the right -->
             <div class="float-right d-none d-sm-inline">
-             
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2022-@DateTime.Now.Year <a href="/">TaxFairy</a>.</strong> All rights reserved.
+            <strong>Copyright &copy; 2022-@DateTime.Now.Year <a href="/" class="shadow-taxfairy-green">TaxFairy</a>.</strong> All rights reserved.
         </footer>
     </div>
     <!-- ./wrapper -->
