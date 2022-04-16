@@ -12,7 +12,7 @@ namespace TaxFairy.Infrastructure.Data.Models
         public Guid Id { get; set; } = Guid.NewGuid();
 
         [Required]
-        [Range(InvoiceNumberMin,InvoiceNumberMax)]
+        [Range(InvoiceNumberMin, InvoiceNumberMax)]
         public long InvoiceNumber { get; set; }
 
         [Required]
@@ -31,9 +31,7 @@ namespace TaxFairy.Infrastructure.Data.Models
         [Required]
         public decimal TotalPrice { get; set; }
 
-        [ForeignKey(nameof(VendorId))]
         public Vendor Vendor { get; set; }
-        public Guid VendorId { get; set; }
 
         [Required]
         public PaymentType PaymentType { get; set; }
@@ -41,7 +39,8 @@ namespace TaxFairy.Infrastructure.Data.Models
         [ForeignKey(nameof(ContragentId))]
         public Contragent Contragent { get; set; }
         public Guid ContragentId { get; set; }
-        public IList<InvoiceDetails> InvoiceDetails { get; set; }
+        public IList<InvoiceDetails> InvoiceDetails { get; set; } = new List<InvoiceDetails>();
+
 
     }
 }

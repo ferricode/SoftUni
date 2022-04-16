@@ -17,7 +17,7 @@ namespace TaxFairy.Infrastructure.Data.Models
         [Required]
         [StringLength(NameLength)]
         public string Name { get; set; }
-       
+
         [Required]
         [StringLength(IdentifierLength)]
         public string Identifier { get; set; }
@@ -34,14 +34,17 @@ namespace TaxFairy.Infrastructure.Data.Models
         [StringLength(AddressLength)]
         public string Address { get; set; }
 
-       
+
         [StringLength(PhoneNumberLength)]
         public string? PhoneNumber { get; set; }
 
         [StringLength(EmailLength)]
         public string? Email { get; set; }
 
-        public List<BankDetails> BankDetails { get; set; }
+        public IList<BankDetails> BankDetails { get; set; } = new List<BankDetails>();
+        public IList<Invoice> Invoices { get; set; } = new List<Invoice>();
+
+
 
     }
 }

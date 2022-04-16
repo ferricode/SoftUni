@@ -517,7 +517,7 @@ namespace TaxFairy.Infrastructure.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("TaxFairy.Infrastructure.Data.Models.Vendor", "Vendor")
-                        .WithMany()
+                        .WithMany("Invoices")
                         .HasForeignKey("VendorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -554,6 +554,8 @@ namespace TaxFairy.Infrastructure.Data.Migrations
             modelBuilder.Entity("TaxFairy.Infrastructure.Data.Models.Vendor", b =>
                 {
                     b.Navigation("BankDetails");
+
+                    b.Navigation("Invoices");
                 });
 #pragma warning restore 612, 618
         }

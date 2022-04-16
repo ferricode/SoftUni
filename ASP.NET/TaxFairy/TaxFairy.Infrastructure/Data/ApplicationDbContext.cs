@@ -18,6 +18,7 @@ namespace TaxFairy.Infrastructure.Data
         public DbSet<InvoiceDetails> InvoiceDetails { get; set; }
         public DbSet<Vendor> Vendors { get; set; }
         public DbSet<News> News { get; set; }
+            public DbSet<ApplicationUser> ApplicationUsers { get; set; }
 
 
 

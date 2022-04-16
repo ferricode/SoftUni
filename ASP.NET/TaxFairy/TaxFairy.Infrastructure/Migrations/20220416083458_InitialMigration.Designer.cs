@@ -12,8 +12,8 @@ using TaxFairy.Infrastructure.Data;
 namespace TaxFairy.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220402184407_ApplicationUser")]
-    partial class ApplicationUser
+    [Migration("20220416083458_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -519,7 +519,7 @@ namespace TaxFairy.Infrastructure.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("TaxFairy.Infrastructure.Data.Models.Vendor", "Vendor")
-                        .WithMany()
+                        .WithMany("Invoices")
                         .HasForeignKey("VendorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -556,6 +556,8 @@ namespace TaxFairy.Infrastructure.Data.Migrations
             modelBuilder.Entity("TaxFairy.Infrastructure.Data.Models.Vendor", b =>
                 {
                     b.Navigation("BankDetails");
+
+                    b.Navigation("Invoices");
                 });
 #pragma warning restore 612, 618
         }

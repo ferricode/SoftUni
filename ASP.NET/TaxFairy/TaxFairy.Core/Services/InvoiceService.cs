@@ -22,21 +22,14 @@ namespace TaxFairy.Core.Services
         }
         public async Task<IEnumerable<InvoiceListViewModel>> GetInvoicesList(string id)
         {
-           // var user= await repo.GetByIdAsync<ApplicationUser>(id);
-            var invoiceList = repo.All<ApplicationUser>()
-                .Where(u => u.Id == id)
-                .Include(u => u.Vendors)
-                .ThenInclude(c => c.Products)
-                .FirstOrDefault();
-
-            return user
-                .Cart
-                .Products
-                .Select(p => new CartViewModel()
-                {
-                    ProductName = p.Name,
-                    ProductPrice = p.Price.ToString("F2")
-                });
+            /* var user= await repo.GetByIdAsync<ApplicationUser>(id);
+             var invoiceList = repo.All<ApplicationUser>()
+                 .Where(u => u.Id == id)
+                 .Include(u => u.Vendors)
+                 .ThenInclude(c => c.Invoices)
+                 .FirstOrDefault(); */
+            return null;
+           
         }
     }
 }
