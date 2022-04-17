@@ -1,0 +1,29 @@
+﻿@using TaxFairy.Core.Models
+@model PrivacyEditViewModel
+@{
+    ViewData["Title"] = "Редактиране политика за защита на лични данни";
+}
+
+<div class="row">
+    <div class="col-4">
+        <form id="edit" method="post">
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-floating">
+                <label asp-for="Content" class="form-label"></label>
+                <input asp-for="Content" class="form-control" aria-required="true" />
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+                  <div class="row">&nbsp;</div>
+            <div class="row">
+                <div class="col-4">
+                    <button id="login-submit" type="submit" class="btn btn-success btn-block">Потвърди</button>
+                </div>
+                <!-- /.col -->
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts{
+<partial name="_ValidationScriptsPartial" />
+}

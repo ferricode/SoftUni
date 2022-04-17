@@ -9,6 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Areas\Admin\Views\Privacy\Edit.cshtml" />
+    <Content Remove="Areas\Admin\Views\Privacy\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="Views\Shared\_Layout.cshtml.css" />
   </ItemGroup>
 
@@ -22,7 +27,8 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,13 +37,11 @@
 
   <ItemGroup>
     <None Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <None Include="Areas\Admin\Views\Privacy\Edit.cshtml" />
+    <None Include="Areas\Admin\Views\Privacy\Index.cshtml" />
     <None Include="Areas\Admin\Views\User\Edit.cshtml" />
     <None Include="Areas\Admin\Views\User\ManageUsers.cshtml" />
     <None Include="Areas\Admin\Views\User\Roles.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Areas\Admin\Views\Privacy\" />
   </ItemGroup>
 
 </Project>

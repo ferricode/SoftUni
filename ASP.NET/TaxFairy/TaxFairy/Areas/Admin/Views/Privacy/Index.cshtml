@@ -1,0 +1,22 @@
+﻿@using TaxFairy.Core.Models
+@model PrivacyEditViewModel
+
+@{
+    ViewData["Title"] = "Политика за защита на лични данни";
+}
+<td bgcolor="#FFFFFF" style="line-height:10px;" colspan=3>&nbsp;</td>
+
+<div class="col-sm-3">
+    <div class="card card-warning">
+        <div class="card-header">
+            <h3 class="card-title">Политика за защита на личните данни</h3>
+        </div>
+        <div class="card-body">
+            @Model.Content
+        </div>
+       <div class="card-footer">
+            <a asp-area="admin" asp-action="edit" asp-controller="privacy" asp-route-id="@Model.Id" class="btn btn-block btn-warning btn-xs">Редакция</a>
+            The footer of the card
+        </div>
+    </div>
+</div>
