@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using TaxFairy.Core.Models;
 using TaxFairy.Infrastructure.Data;
 using TaxFairy.Infrastructure.Data.Models;
 
@@ -15,8 +16,8 @@ namespace TaxFairy.Controllers
         // GET: InvoiceController
         public ActionResult Index()
         {
-            
-            return View(InvoiceList);
+            //InvoiceListViewModel
+            return View();
         }
 
         // GET: InvoiceController/Details/5

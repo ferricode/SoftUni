@@ -12,7 +12,7 @@ using TaxFairy.Infrastructure.Repositories;
 
 namespace TaxFairy.Core.Services
 {
-    public class InvoiceService:IInvoiceService
+    public class InvoiceService : IInvoiceService
     {
         private readonly ITaxFairyDbRepository repo;
 
@@ -22,14 +22,27 @@ namespace TaxFairy.Core.Services
         }
         public async Task<IEnumerable<InvoiceListViewModel>> GetInvoicesList(string id)
         {
-            /* var user= await repo.GetByIdAsync<ApplicationUser>(id);
-             var invoiceList = repo.All<ApplicationUser>()
-                 .Where(u => u.Id == id)
-                 .Include(u => u.Vendors)
-                 .ThenInclude(c => c.Invoices)
-                 .FirstOrDefault(); */
-            return null;
-           
+        //    var vendor = await repo.GetByIdAsync<Vendor>(id);
+        //    var invoiceList = await GetInvoices().Where(i=>i)
+
+
+        //    return invoiceList;
+        return null;
+
+        }
+        public async Task<IEnumerable<InvoiceListViewModel>> GetInvoices()
+        {
+            return await repo.All<Invoice>()
+                    .Select(i => new InvoiceListViewModel
+                    {
+                        Id = i.Id.ToString(),
+                        InvoiceNumber = i.InvoiceNumber,
+                        InvoiceType = i.InvoiceType,
+                        IssueDate = i.IssueDate,
+                        TotalPrice = i.TotalPrice,
+                        ContragentName = i.Contragent.Name
+                    })
+                    .ToListAsync();
         }
     }
 }

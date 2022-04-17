@@ -10,7 +10,7 @@ namespace TaxFairy.Core.Models
 {
     public class InvoiceListViewModel
     {
-
+        public string Id { get; set; }
         public long InvoiceNumber { get; set; }
 
         public InvoiceType InvoiceType { get; set; }

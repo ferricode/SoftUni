@@ -1,5 +1,5 @@
-﻿@using TaxFairy.Infrastructure.Data.Models
-@model IEnumerable<Invoice>
+﻿@using TaxFairy.Core.Models
+@model IEnumerable<InvoiceListViewModel>
 
 @{
     ViewData["Title"] = "Издадени фактури";
@@ -54,7 +54,7 @@
                         @obj.IssueDate
                     </td>
                     <td width="25%">
-                        @obj.Contragent
+                        @obj.ContragentName
                     </td>
                     <td width="10%">
                         @obj.TotalPrice
