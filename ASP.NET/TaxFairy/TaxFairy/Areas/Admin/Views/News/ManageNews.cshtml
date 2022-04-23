@@ -1,4 +1,4 @@
-﻿@using TaxFairy.Core.Models
+﻿@using TaxFairy.Core.ViewModels
 @model IEnumerable<NewsViewModel>
 
 @{
@@ -7,6 +7,7 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
+            <a asp-area="admin" asp-action="create" asp-controller="news" class="btn btn-block btn-warning btn-lg">Добави новина</a>
             <div class="card-header">
                 <h3 class="card-title">Налични новини</h3>
                 <div class="card-tools">
@@ -35,11 +36,10 @@
                         @foreach (var news in Model)
                         {
                             <tr>
-                                <td>@news.Content</td>
-                                <td>@news.IssueDate</td>
+                                <td> <textarea asp-for=@news.Content rows="15" cols="80"> </textarea></td>
+                                <td>@DateOnly.FromDateTime(news.IssueDate)</td>
                                 <td>
-                                    <a asp-area="admin" asp-action="edit" asp-controller="news" asp-route-id="@news.Id" class="btn btn-block btn-warning btn-xs">Редакция</a>
-                                    <a asp-area="admin" asp-action="delete" asp-controller="news" asp-route-id="@news.Id" class="btn btn-block bg-gradient-success btn-xs">Изтрий</a>
+                                    <a asp-area="admin" asp-action="edit" asp-controller="news" asp-route-id="@news.Id" class="btn btn-block btn-outline-success btn-xs">Редакция</a>
                                 </td>
                             </tr>
                         }

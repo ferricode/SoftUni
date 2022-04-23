@@ -1,0 +1,23 @@
+﻿@using TaxFairy.Core.ViewModels
+@model NewsCreateViewModel
+@{
+    ViewData["Title"] = "Добавяне на новини";
+}
+
+<form id="create" method="post">
+    <div class="form-floating">
+     <textarea asp-for="Content" rows="15" cols="80"> </textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-4">
+            <button id="login-submit" type="submit" class="btn btn-success btn-block">Добави</button>
+        </div>
+        <!-- /.col -->
+    </div>
+</form>
+
+@section Scripts{
+<partial name="_ValidationScriptsPartial" />
+}
