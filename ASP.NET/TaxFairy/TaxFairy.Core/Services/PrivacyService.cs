@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TaxFairy.Core.Contracts;
-using TaxFairy.Core.Models;
+using TaxFairy.Core.ViewModels;
 using TaxFairy.Infrastructure.Data.Models;
 using TaxFairy.Infrastructure.Repositories;
 
@@ -28,6 +28,11 @@ namespace TaxFairy.Core.Services
                          .FirstOrDefaultAsync();
 
             return privacy;
+        }
+
+        public Task<NewsViewModel> GetPrivacyToEdit(string id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

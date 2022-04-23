@@ -1,4 +1,4 @@
-﻿namespace TaxFairy.Core.Models
+﻿namespace TaxFairy.Core.ViewModels
 {
     public class PrivacyEditViewModel
     {

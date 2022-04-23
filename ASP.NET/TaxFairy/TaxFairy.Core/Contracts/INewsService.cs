@@ -1,4 +1,4 @@
-﻿using TaxFairy.Core.Models;
+﻿using TaxFairy.Core.ViewModels;
 
 namespace TaxFairy.Core.Contracts
 {
@@ -7,5 +7,6 @@ namespace TaxFairy.Core.Contracts
         Task<IEnumerable<NewsViewModel>> GetNewsList();
         Task<NewsViewModel> GetNewsToEdit(string id);
         Task<bool> EditNews(NewsViewModel model);
+        Task<bool> CreateNews(NewsCreateViewModel model);
     }
 }

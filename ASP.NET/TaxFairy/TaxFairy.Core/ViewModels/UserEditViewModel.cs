@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace TaxFairy.Core.Models
+namespace TaxFairy.Core.ViewModels
 {
     public class UserEditViewModel
     {
@@ -14,6 +14,7 @@ namespace TaxFairy.Core.Models
 
 
         [Display(Name = "Email адрес")]
+        [EmailAddress]
         public string Email { get; set; }
 
 

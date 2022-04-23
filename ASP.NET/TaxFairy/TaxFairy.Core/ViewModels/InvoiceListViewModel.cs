@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using TaxFairy.Infrastructure.Data.Enums;
 using TaxFairy.Infrastructure.Data.Models;
 
-namespace TaxFairy.Core.Models
+namespace TaxFairy.Core.ViewModels
 {
     public class InvoiceListViewModel
     {

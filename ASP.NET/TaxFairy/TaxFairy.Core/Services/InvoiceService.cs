@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TaxFairy.Core.Contracts;
-using TaxFairy.Core.Models;
+using TaxFairy.Core.ViewModels;
 using TaxFairy.Infrastructure.Data.Identity;
 using TaxFairy.Infrastructure.Data.Models;
 using TaxFairy.Infrastructure.Repositories;

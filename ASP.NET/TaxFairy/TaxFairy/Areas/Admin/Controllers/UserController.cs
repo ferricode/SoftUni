@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TaxFairy.Core.Constants;
 using TaxFairy.Core.Contracts;
-using TaxFairy.Core.Models;
+using TaxFairy.Core.ViewModels;
 using TaxFairy.Infrastructure.Data.Identity;
 
 namespace TaxFairy.Areas.Admin.Controllers
@@ -82,8 +82,8 @@ namespace TaxFairy.Areas.Admin.Controllers
             {
                 ViewData[MessageConstant.ErrorMessage] = "Възникна грешка!";
             }
+               return View(model);
 
-            return View(model);
 
         }
         public async Task<IActionResult> CreateRole(string roleName)
