@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using TaxFairy.Core.Models;
+using TaxFairy.Core.Contracts;
+using TaxFairy.Core.ViewModels;
 using TaxFairy.Infrastructure.Data;
 using TaxFairy.Infrastructure.Data.Models;
 
@@ -9,15 +10,20 @@ namespace TaxFairy.Controllers
     public class InvoiceController : Controller
     {
         private readonly ApplicationDbContext context;
-        public InvoiceController(ApplicationDbContext _context)
+        private readonly IInvoiceService service;
+        public InvoiceController(ApplicationDbContext _context,
+            IInvoiceService _service)
         {
+            service = _service;
             context = _context;
         }
         // GET: InvoiceController
-        public ActionResult Index()
+        public async Task<IActionResult> Index()
         {
             //InvoiceListViewModel
-            return View();
+            var model = await service.GetInvoices();
+                
+                return View(model);
         }
 
         // GET: InvoiceController/Details/5

@@ -11,7 +11,7 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
             services.AddScoped<ITaxFairyDbRepository, TaxFairyDbRepository>();
-            services.AddScoped<IValidationService, ValidationService>();
+           // services.AddScoped<IValidationService, ValidationService>();
             services.AddScoped<IInvoiceService, InvoiceService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IPrivacyService, PrivacyService>();
