@@ -15,10 +15,10 @@ namespace TaxFairy.Areas.Admin.Controllers
             service = _service;
         }
         [HttpGet]
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
 
-            var privacy = service.GetPrivacy();
+            var privacy = await service.GetPrivacy();
             return View(privacy);
 
 
