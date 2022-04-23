@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace TaxFairy.Infrastructure.Data.Migrations
+namespace TaxFairy.Infrastructure.Migrations
 {
-    public partial class InitMigration : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -53,7 +53,7 @@ namespace TaxFairy.Infrastructure.Data.Migrations
                 name: "Contragents",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 40, nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Identifier = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     TaxIdentifier = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
@@ -71,13 +71,26 @@ namespace TaxFairy.Infrastructure.Data.Migrations
                 name: "News",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 40, nullable: false),
-                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IssueDate = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Id = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(max)", maxLength: 10000, nullable: false),
+                    IssueDate = table.Column<DateTime>(type: "date", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_News", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "PrivacyPolicies",
+                columns: table => new
+                {
+                    Id = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
+                    Content = table.Column<string>(type: "nvarchar(max)", maxLength: 10000, nullable: false),
+                    LastUpdated = table.Column<DateTime>(type: "date", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_PrivacyPolicies", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -190,7 +203,7 @@ namespace TaxFairy.Infrastructure.Data.Migrations
                 name: "Vendors",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 40, nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Identifier = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     TaxIdentifier = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
@@ -218,7 +231,7 @@ namespace TaxFairy.Infrastructure.Data.Migrations
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Iban = table.Column<string>(type: "nvarchar(35)", maxLength: 35, nullable: false),
                     Bic = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
-                    VendorId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    VendorId = table.Column<string>(type: "nvarchar(40)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -234,16 +247,16 @@ namespace TaxFairy.Infrastructure.Data.Migrations
                 name: "Invoices",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 40, nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
                     InvoiceNumber = table.Column<long>(type: "bigint", nullable: false),
                     InvoiceType = table.Column<int>(type: "int", nullable: false),
-                    IssueDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    NetPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    TotalTax = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    VendorId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    IssueDate = table.Column<DateTime>(type: "date", nullable: false),
+                    NetPrice = table.Column<decimal>(type: "money", nullable: false),
+                    TotalTax = table.Column<decimal>(type: "money", nullable: false),
+                    TotalPrice = table.Column<decimal>(type: "money", nullable: false),
+                    VendorId = table.Column<string>(type: "nvarchar(40)", nullable: true),
                     PaymentType = table.Column<int>(type: "int", nullable: false),
-                    ContragentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
+                    ContragentId = table.Column<string>(type: "nvarchar(40)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -258,21 +271,20 @@ namespace TaxFairy.Infrastructure.Data.Migrations
                         name: "FK_Invoices_Vendors_VendorId",
                         column: x => x.VendorId,
                         principalTable: "Vendors",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
                 name: "InvoiceDetails",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "uniqueidentifier", maxLength: 40, nullable: false),
+                    Id = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false),
                     ItemName = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Price = table.Column<decimal>(type: "money", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     TaxPercentage = table.Column<int>(type: "int", nullable: false),
-                    TotalPrice = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
-                    InvoiceId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                    TotalPrice = table.Column<decimal>(type: "money", nullable: false),
+                    InvoiceId = table.Column<string>(type: "nvarchar(40)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -374,6 +386,9 @@ namespace TaxFairy.Infrastructure.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "News");
+
+            migrationBuilder.DropTable(
+                name: "PrivacyPolicies");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

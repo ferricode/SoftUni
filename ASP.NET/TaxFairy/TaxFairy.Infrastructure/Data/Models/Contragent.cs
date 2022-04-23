@@ -9,7 +9,7 @@ namespace TaxFairy.Infrastructure.Data.Models
         [Key]
         [MaxLength(IdMaxLength)]
 
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public string Id { get; set; } = Guid.NewGuid().ToString();
 
         [Required]
         [StringLength(NameLength)]

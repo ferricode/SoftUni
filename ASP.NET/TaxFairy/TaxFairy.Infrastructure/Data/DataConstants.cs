@@ -18,6 +18,8 @@
         public const long InvoiceNumberMin = 1;
         public const long InvoiceNumberMax = 9999999999;
 
+        public const int ContentMax = 10000;
+
 
     }
 }

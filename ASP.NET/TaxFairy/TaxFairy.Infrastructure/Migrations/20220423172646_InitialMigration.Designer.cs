@@ -9,10 +9,10 @@ using TaxFairy.Infrastructure.Data;
 
 #nullable disable
 
-namespace TaxFairy.Infrastructure.Data.Migrations
+namespace TaxFairy.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220416083458_InitialMigration")]
+    [Migration("20220423172646_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -252,8 +252,8 @@ namespace TaxFairy.Infrastructure.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<Guid?>("VendorId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("VendorId")
+                        .HasColumnType("nvarchar(40)");
 
                     b.HasKey("Id");
 
@@ -264,10 +264,9 @@ namespace TaxFairy.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("TaxFairy.Infrastructure.Data.Models.Contragent", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
                         .HasMaxLength(40)
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("nvarchar(40)");
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -308,13 +307,13 @@ namespace TaxFairy.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("TaxFairy.Infrastructure.Data.Models.Invoice", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
                         .HasMaxLength(40)
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("nvarchar(40)");
 
-                    b.Property<Guid>("ContragentId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("ContragentId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(40)");
 
                     b.Property<long>("InvoiceNumber")
                         .HasColumnType("bigint");
@@ -323,22 +322,22 @@ namespace TaxFairy.Infrastructure.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("IssueDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("date");
 
                     b.Property<decimal>("NetPrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("money");
 
                     b.Property<int>("PaymentType")
                         .HasColumnType("int");
 
                     b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("money");
 
                     b.Property<decimal>("TotalTax")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("money");
 
-                    b.Property<Guid>("VendorId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("VendorId")
+                        .HasColumnType("nvarchar(40)");
 
                     b.HasKey("Id");
 
@@ -351,13 +350,12 @@ namespace TaxFairy.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("TaxFairy.Infrastructure.Data.Models.InvoiceDetails", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
                         .HasMaxLength(40)
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("nvarchar(40)");
 
-                    b.Property<Guid?>("InvoiceId")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("InvoiceId")
+                        .HasColumnType("nvarchar(40)");
 
                     b.Property<string>("ItemName")
                         .IsRequired()
@@ -365,7 +363,7 @@ namespace TaxFairy.Infrastructure.Data.Migrations
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("money");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -374,7 +372,7 @@ namespace TaxFairy.Infrastructure.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<decimal>("TotalPrice")
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("money");
 
                     b.HasKey("Id");
 
@@ -385,29 +383,47 @@ namespace TaxFairy.Infrastructure.Data.Migrations
 
             modelBuilder.Entity("TaxFairy.Infrastructure.Data.Models.News", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
                         .HasMaxLength(40)
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("nvarchar(40)");
 
                     b.Property<string>("Content")
                         .IsRequired()
+                        .HasMaxLength(10000)
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("IssueDate")
-                        .HasColumnType("datetime2");
+                        .HasColumnType("date");
 
                     b.HasKey("Id");
 
                     b.ToTable("News");
                 });
 
+            modelBuilder.Entity("TaxFairy.Infrastructure.Data.Models.PrivacyPolicy", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<string>("Content")
+                        .IsRequired()
+                        .HasMaxLength(10000)
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastUpdated")
+                        .HasColumnType("date");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("PrivacyPolicies");
+                });
+
             modelBuilder.Entity("TaxFairy.Infrastructure.Data.Models.Vendor", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("Id")
                         .HasMaxLength(40)
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("nvarchar(40)");
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -520,9 +536,7 @@ namespace TaxFairy.Infrastructure.Data.Migrations
 
                     b.HasOne("TaxFairy.Infrastructure.Data.Models.Vendor", "Vendor")
                         .WithMany("Invoices")
-                        .HasForeignKey("VendorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("VendorId");
 
                     b.Navigation("Contragent");
 

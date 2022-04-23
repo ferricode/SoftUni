@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace TaxFairy.Infrastructure.Data.Models
 {
@@ -8,12 +8,14 @@ namespace TaxFairy.Infrastructure.Data.Models
     {
         [Key]
         [MaxLength(IdMaxLength)]
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public string Id { get; set; } = Guid.NewGuid().ToString();
 
         [Required]
+        [MaxLength(ContentMax)]
         public string Content { get; set; }
 
         [Required]
+        [Column(TypeName = "date")]
         public DateTime LastUpdated { get; set; }
 
     }
