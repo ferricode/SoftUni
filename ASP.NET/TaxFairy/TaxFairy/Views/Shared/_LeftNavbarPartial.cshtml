@@ -1,0 +1,31 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using TaxFairy.Infrastructure.Data.Identity
+
+
+@if ((!User.IsInRole("Administrator")))
+{
+    if (User.Identity?.IsAuthenticated ?? true)
+    {
+
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="@Url.Action("Index", "Invoice", new { area = "" })" method="post" class="nav-link"> Фактури </a>
+            </li>
+            <li class="nav-item">
+                <a href="@Url.Action("Index", "Vendor", new { area = "" })" method="post" class="nav-link"> База на фирма </a>
+            </li>
+            <li class="nav-item">
+                <a href="@Url.Action("Index", "Bank", new { area = "" })" method="post" class="nav-link"> Банкови сметки </a>
+            </li>
+            <li class="nav-item">
+                <a href="@Url.Action("Index", "Contragent", new { area = "" })" method="post" class="nav-link"> Клиенти </a>
+            </li>
+        </ul>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a href="@Url.Action("Index", "Invoice", new { area = "" })" method="post" class="nav-link"> Фактури </a>
+        </li>
+    }
+}
