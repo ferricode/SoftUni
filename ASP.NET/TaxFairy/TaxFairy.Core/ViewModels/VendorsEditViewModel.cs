@@ -26,9 +26,6 @@ namespace TaxFairy.Core.ViewModels
 
         public string? Email { get; set; }
 
-        public List<BankDetailsEditViewModel> BankDetails
-        {
-            get; set;
-        }
+        public List<BankDetailsEditViewModel> BankDetails{get; set;}
     }
 }

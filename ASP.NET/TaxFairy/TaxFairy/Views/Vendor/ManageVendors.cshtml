@@ -1,0 +1,57 @@
+﻿@using TaxFairy.Core.ViewModels
+@model IEnumerable<VendorListViewModel>
+@{
+}
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <a asp-action="create" asp-controller="vendor" class="btn btn-block btn-warning btn-lg">Добави фирма</a>
+            <div class="card-header">
+                <h3 class="card-title">Бази на фирми</h3>
+                <div class="card-tools">
+                    <div class="input-group input-group-sm" style="width: 150px;">
+                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                        <div class="input-group-append">
+                            <button type="submit" class="btn btn-default">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>Фирма</th>
+                            <th>МОЛ</th>
+                            <th>ЕИК</th>
+                            <th>ДДС номер</th>
+                            <th>Действие</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var vendor in Model)
+                        {
+                            <tr>
+                                <td>@vendor.Name</td>
+                                <td>@vendor.AccountablePerson</td>
+                                <td>@vendor.Identifier</td>
+                                <td>@vendor.TaxIdentifier</td>
+                                <td>
+                                    <a asp-area="" asp-action="edit" asp-controller="vendor" asp-route-id="@vendor.Id" class="btn btn-block btn-warning btn-xs">Редакция</a>
+                                    <a asp-area="" asp-action="create" asp-controller="invoice" asp-route-id="@vendor.Id" class="btn btn-block bg-gradient-success btn-xs">Избор</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</div>

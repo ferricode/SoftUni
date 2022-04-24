@@ -1,0 +1,57 @@
+﻿@using TaxFairy.Core.ViewModels
+@model VendorCreateViewModel
+@{
+    ViewData["Title"] = "Добавяне на фирма";
+}
+<div class="row">
+    <div class="col-4">
+        <form id="create" method="post">
+            <div class="form-floating">
+                <label asp-for="Name" class="form-label">Име на фирма</label>
+                <input asp-for="Name" class="form-control" aria-required="true" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <label asp-for="Identifier" class="form-label">ЕИК /Единен идентификационен код/</label>
+                <input asp-for="Identifier" class="form-control" aria-required="true" />
+                <span asp-validation-for="Identifier" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <label asp-for="TaxIdentifier" class="form-label">ДДС номер</label>
+                <input asp-for="TaxIdentifier" class="form-control" aria-required="true" />
+                <span asp-validation-for="TaxIdentifier" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <label asp-for="АccountablePerson" class="form-label">МОЛ /Материално отговорно лице/</label>
+                <input asp-for="АccountablePerson" class="form-control" aria-required="true" />
+                <span asp-validation-for="АccountablePerson" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <label asp-for="Address" class="form-label">Адрес</label>
+                <input asp-for="Address" class="form-control" aria-required="true" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <label asp-for="PhoneNumber" class="form-label">Телефонен номер</label>
+                <input asp-for="PhoneNumber" class="form-control" aria-required="true" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-floating">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" class="form-control" aria-required="true" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="row">&nbsp;</div>
+            <div class="row">
+                <div class="col-4">
+                    <button id="login-submit" type="submit" class="btn btn-success btn-block">Добави</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+<partial name="_ValidationScriptsPartial" />
+}
+

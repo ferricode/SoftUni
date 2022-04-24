@@ -16,6 +16,8 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IPrivacyService, PrivacyService>();
             services.AddScoped<INewsService, NewsService>();
+            services.AddScoped<IVendorService, VendorService>();
+
 
             return services;
         }
