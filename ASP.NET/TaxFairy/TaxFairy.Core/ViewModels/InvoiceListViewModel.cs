@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaxFairy.Infrastructure.Data.Enums;
-using TaxFairy.Infrastructure.Data.Models;
+﻿using TaxFairy.Infrastructure.Data.Enums;
 
 namespace TaxFairy.Core.ViewModels
 {
