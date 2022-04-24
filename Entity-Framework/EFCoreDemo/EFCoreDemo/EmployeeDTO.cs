@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace EFCoreDemo
+{
+    public class EmployeeDTO
+    {
+        public string  FirstName { get; set; }
+        public string  LastName { get; set; }
+        public decimal  Salary { get; set; }
+        public int NumberOfProjects { get; set; }
+        public string DepartmentName { get; set; }
+    }
+}
