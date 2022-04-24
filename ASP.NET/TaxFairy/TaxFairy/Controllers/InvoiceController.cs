@@ -7,7 +7,7 @@ using TaxFairy.Infrastructure.Data.Models;
 
 namespace TaxFairy.Controllers
 {
-    public class InvoiceController : Controller
+    public class InvoiceController : BaseController
     {
         private readonly ApplicationDbContext context;
         private readonly IInvoiceService service;
