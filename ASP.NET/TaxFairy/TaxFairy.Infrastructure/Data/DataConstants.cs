@@ -1,6 +1,6 @@
 ﻿namespace TaxFairy.Infrastructure.Data
 {
-    public class DataConstants
+    public static class DataConstants
     {
         public const int IdMaxLength = 40;
 
