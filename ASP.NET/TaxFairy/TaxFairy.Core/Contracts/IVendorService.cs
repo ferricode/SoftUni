@@ -11,8 +11,8 @@ namespace TaxFairy.Core.Contracts
     {
         Task<IEnumerable<VendorListViewModel>> GetVendorList();
         Task<bool> CreateVendor(VendorCreateViewModel model);
-        //Task<VendorEditViewModel> GetVendorToEdit(string id);
-        //Task<bool> EditUser(VendorEditViewModel model);
+        Task<VendorEditViewModel> GetVendorToEdit(string id);
+        Task<bool> EditVendor(VendorEditViewModel model);
 
     }
 }

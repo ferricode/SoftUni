@@ -2,15 +2,19 @@
 
 namespace TaxFairy.Core.ViewModels
 {
-    public class VendorCreateViewModel
+    public class VendorEditViewModel
     {
+
+        public string Id { get; set; }
 
         [Required]
         [StringLength(Infrastructure.Data.DataConstants.NameLength)]
+        [Display(Name ="Тук въведи име на фирма")]
         public string Name { get; set; }
 
         [Required]
-        [StringLength(Infrastructure.Data.DataConstants.IdentifierLength)]
+        [StringLength(Infrastructure.Data.DataConstants.IdentifierLength, ErrorMessage = "Дължината на ЕИК не трябва да е повече от 20 символа.")]
+        //[StringLength(Infrastructure.Data.DataConstants.IdentifierLength)]
         public string Identifier { get; set; }
 
         [Required]
@@ -22,7 +26,6 @@ namespace TaxFairy.Core.ViewModels
         public string АccountablePerson { get; set; }
 
         [Required]
-       // [StringLength(Infrastructure.Data.DataConstants.AddressLength)]
         [StringLength(Infrastructure.Data.DataConstants.AddressLength)]
         public string Address { get; set; }
 

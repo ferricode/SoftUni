@@ -1,0 +1,43 @@
+﻿@using TaxFairy.Core.ViewModels
+@model VendorEditViewModel
+@{
+    ViewData["Title"] = " База на фирма";
+}
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body table-responsive p-0">
+                <div class="card-body table-responsive p-0">
+                    <table class="table table-hover text-nowrap">
+                        <tr>
+                            <th>Име на фирма</th>
+                            <th>ЕИК /Единен идентификационен код/</th>
+                            <th>ДДС номер</th>
+                            <th>МОЛ /Материално отговорно лице/</th>
+                            <th>Адрес</th>
+                            <th>Телефонен номер</th>
+                            <th>Email</th>
+                        </tr>
+
+                        <tr>
+                            <td>@Model.Name</td>
+                            <td>@Model.Identifier</td>
+                            <td>@Model.TaxIdentifier</td>
+                            <td>@Model.АccountablePerson</td>
+                            <td>@Model.Address</td>
+                            <td>@Model.PhoneNumber</td>
+                            <td>@Model.Email</td>
+                        </tr>
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <a asp-action="create" asp-controller="invoice" class="btn btn-block btn-warning btn-lg">Избор на база за работа</a>
+            </div>
+        </div>
+    </div>
+</div>

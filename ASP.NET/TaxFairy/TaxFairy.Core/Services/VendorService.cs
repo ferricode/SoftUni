@@ -69,5 +69,44 @@ namespace TaxFairy.Core.Services
                 })
                 .ToListAsync();
         }
+
+        public async Task<VendorEditViewModel> GetVendorToEdit(string id)
+        {
+            var vendor= await repo.GetByIdAsync<Vendor>(id);
+
+            return new VendorEditViewModel()
+            {
+                Id = vendor.Id,
+                Name = vendor.Name,
+                АccountablePerson = vendor.АccountablePerson,
+                Identifier = vendor.Identifier,
+                TaxIdentifier = vendor.TaxIdentifier,
+                Email = vendor.Email,
+                PhoneNumber = vendor.PhoneNumber,
+
+            };
+
+        }
+        public async Task<bool> EditVendor(VendorEditViewModel model)
+        {
+            bool result = false;
+            var vendor = await repo.GetByIdAsync<Vendor>(model.Id);
+
+            if (vendor != null)
+            {
+                vendor.Id = model.Id;
+                vendor.Name = model.Name;
+                vendor.АccountablePerson = model.АccountablePerson;
+                vendor.Identifier = model.Identifier;
+                vendor.TaxIdentifier = model.TaxIdentifier;
+                vendor.Email = model.Email;
+                vendor.PhoneNumber = model.PhoneNumber;
+
+                await repo.SaveChangesAsync();
+                result = true;
+            }
+
+            return result;
+        }
     }
 }
