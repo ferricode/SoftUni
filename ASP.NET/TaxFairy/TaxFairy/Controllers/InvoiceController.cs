@@ -35,7 +35,7 @@ namespace TaxFairy.Controllers
         // GET: InvoiceController/Create
         public ActionResult Create()
         {
-            return View();
+               return View();
         }
 
         // POST: InvoiceController/Create
