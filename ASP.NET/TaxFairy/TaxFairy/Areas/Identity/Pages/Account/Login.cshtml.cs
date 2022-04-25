@@ -11,6 +11,7 @@ using TaxFairy.Infrastructure.Data.Identity;
 
 namespace TaxFairy.Areas.Identity.Pages.Account
 {
+    [AutoValidateAntiforgeryToken]
     public class LoginModel : PageModel
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
