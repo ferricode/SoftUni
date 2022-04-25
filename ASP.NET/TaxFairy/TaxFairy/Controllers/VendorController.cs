@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using TaxFairy.Core.Constants;
 using TaxFairy.Core.Contracts;
@@ -19,10 +20,18 @@ namespace TaxFairy.Controllers
         public async Task<IActionResult> Details(string id)
         {
             var vendor = await service.GetVendorToEdit(id);
-           // TempData["VendorId"] = id;
 
-           // return RedirectToAction("Create", "Invoice");
-           return View(vendor);
+            _ = Request.Cookies["vendorName"];
+            string vendorName = vendor.Name;
+
+            Response.Cookies.Append("vendorName", vendorName,
+                new CookieOptions
+                {
+                    Expires = DateTime.UtcNow.AddMonths(2),
+                    SameSite = SameSiteMode.Strict
+                });
+
+            return View(vendor);
         }
         // GET: VendorController
         public async Task<IActionResult> ManageVendors()
@@ -31,9 +40,9 @@ namespace TaxFairy.Controllers
             return View(vendors);
         }
 
-      
+
         // GET: VendorController/Create
-        public ActionResult Create()
+        public IActionResult Create()
         {
             return View();
         }
@@ -63,7 +72,7 @@ namespace TaxFairy.Controllers
         }
 
 
-        public async Task <IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(string id)
         {
             var model = await service.GetVendorToEdit(id);
             return View(model);
@@ -75,7 +84,7 @@ namespace TaxFairy.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(VendorEditViewModel model)
         {
-            if(!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 return View(model);
             }
@@ -90,9 +99,9 @@ namespace TaxFairy.Controllers
             }
             return View(model);
 
-           
+
         }
 
-      
+
     }
 }
