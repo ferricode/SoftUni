@@ -17,7 +17,7 @@ namespace TaxFairy.Controllers
         {
             return View();
         }
-        public async Task<IActionResult> ManageVendors()
+        public async Task<IActionResult> ManageContragents()
         {
             var contragents = await service.GetContragentList();
             return View(contragents);
@@ -38,7 +38,7 @@ namespace TaxFairy.Controllers
             if (await service.CreateContragent(model))
             {
 
-                return Redirect("/Contragent/ManageVendors");
+                return Redirect("/Contragent/ManageContragents");
             }
             else
             {
