@@ -17,6 +17,7 @@ namespace Microsoft.Extensions.DependencyInjection
             services.AddScoped<IPrivacyService, PrivacyService>();
             services.AddScoped<INewsService, NewsService>();
             services.AddScoped<IVendorService, VendorService>();
+            services.AddScoped<IContragentService, ContragentService>();
 
 
             return services;
