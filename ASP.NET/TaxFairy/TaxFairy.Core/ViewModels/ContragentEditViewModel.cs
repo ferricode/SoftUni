@@ -1,19 +1,24 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace TaxFairy.Core.ViewModels
 {
-    public class VendorEditViewModel
+    public class ContragentEditViewModel
     {
-
         public string Id { get; set; }
 
         [Required]
         [StringLength(Infrastructure.Data.DataConstants.NameLength)]
-
+       
         public string Name { get; set; }
 
         [Required]
         [StringLength(Infrastructure.Data.DataConstants.IdentifierLength)]
+      
         public string Identifier { get; set; }
 
         [Required]
@@ -22,7 +27,7 @@ namespace TaxFairy.Core.ViewModels
 
         [Required]
         [StringLength(Infrastructure.Data.DataConstants.AccountablePersonLength)]
-        public string АccountablePerson { get; set; }
+        public string AccountablePerson { get; set; }
 
         [Required]
         [StringLength(Infrastructure.Data.DataConstants.AddressLength)]
@@ -34,6 +39,5 @@ namespace TaxFairy.Core.ViewModels
 
         [StringLength(Infrastructure.Data.DataConstants.EmailLength)]
         public string? Email { get; set; }
-
     }
 }
