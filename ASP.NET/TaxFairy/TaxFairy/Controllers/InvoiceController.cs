@@ -1,14 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using TaxFairy.Core.Contracts;
-using TaxFairy.Core.ViewModels;
 using TaxFairy.Infrastructure.Data;
-using TaxFairy.Infrastructure.Data.Models;
 
 namespace TaxFairy.Controllers
 {
     public class InvoiceController : BaseController
     {
+    
         private readonly ApplicationDbContext context;
         private readonly IInvoiceService service;
         public InvoiceController(ApplicationDbContext _context,
@@ -21,9 +19,14 @@ namespace TaxFairy.Controllers
         public async Task<IActionResult> Index()
         {
             //InvoiceListViewModel
+
             var model = await service.GetInvoices();
-                
-                return View(model);
+
+          Request.Cookies.TryGetValue("vendorName", out string? vendor);
+
+            TempData["name"] = vendor;
+        
+            return View(model);
         }
 
         // GET: InvoiceController/Details/5
@@ -35,7 +38,7 @@ namespace TaxFairy.Controllers
         // GET: InvoiceController/Create
         public ActionResult Create()
         {
-               return View();
+            return View();
         }
 
         // POST: InvoiceController/Create
