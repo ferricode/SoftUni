@@ -53,7 +53,12 @@ app.get('/', (req, res) => {
     res.render('home');
 });
 app.get('/cats', (req, res) => {
-    res.render('cats');
+    let cats = [
+        { name: 'Navcho', breed: 'Persian', age: 7 },
+        { name: 'Sisa', breed: 'Angora', age: 12 },
+        { name: 'Rio', breed: 'British shorthear', age: 3 },
+    ];
+    res.render('cats', { cats });
 });
 app.get('/json', (req, res) => {
     res.json({ ok: true, message: 'hello from json' });
@@ -85,7 +90,12 @@ app.get('/dogs/:dogId', validateDogIdMidleware, (req, res) => {
     res.render('dog', { Id: req.params.dogId });
 });
 app.get('/dogs', (req, res) => {
-    res.render('dogs');
+    let dogs = [
+        { name: 'Lea', breed: 'Cocker spaniel', age: 2 },
+        { name: 'Teri', breed: 'Yorkshire Terrier', age: 12 },
+        { name: 'Dorian', breed: 'Husky', age: 5 },
+    ];
+    res.render('dogs', { dogs });
 
 });
 app.post('/cats', (req, res) => {
