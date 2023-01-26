@@ -34,6 +34,13 @@
       "descriptiom": "New Rubik's cube",
       "imageUrl": "https://www.ziicube.com/image/cube/AJ/Curvy-Dino-12/AJ-Curvy-Dino-12-15.jpg",
       "difficultyLevel": "4"
+    },
+    {
+      "name": "Cute cube",
+      "descriptiom": "Some cute cube",
+      "imageUrl": "https://www.tubefilter.com/wp-content/uploads/2022/09/youtube-millionaires-souptimmy-1920x1131.jpg",
+      "difficultyLevel": "1",
+      "id": "51"
     }
   ]
 }
