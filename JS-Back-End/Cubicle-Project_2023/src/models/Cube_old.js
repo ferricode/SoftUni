@@ -2,6 +2,7 @@ const fs = require('fs');
 const db = require('../db.json');
 const path = require('path');
 
+/*@deprecate use mongoogse models*/
 class Cube {
     constructor(name, description, imageUrl, difficultyLevel) {
         this.name = name;
