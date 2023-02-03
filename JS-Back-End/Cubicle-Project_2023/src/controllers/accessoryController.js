@@ -13,7 +13,12 @@ router.post('/create', async (req, res) => {
     // const accessory=new Accessory();
 
     //Var.2
-    await Accessory.create({ name, description, imageUrl });
+    try {
+        await Accessory.create({ name, description, imageUrl });
+    } catch (err) {
+        console.log(err.message);
+        return res.redirect('/404');
+    }
     res.redirect('/');
 });
 

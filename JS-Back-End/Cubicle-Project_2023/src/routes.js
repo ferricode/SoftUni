@@ -15,6 +15,6 @@ router.get('/cubes/:cubeId/attach', cubeController.getAttachAccessory);
 router.post('/cubes/:cubeId/attach', cubeController.postAttachAccessory);
 
 
-router.use('/accesories', accessoryController);
+router.use('/accessories', accessoryController);
 
 module.exports = router; 
