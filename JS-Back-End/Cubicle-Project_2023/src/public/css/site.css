@@ -90,7 +90,8 @@ p.name {
     border-bottom: 1px solid #2b415433;
 }
 
-button, main a.btn {
+button,
+main a.btn {
     border: none;
     padding: 8px;
     text-align: center;
@@ -220,12 +221,12 @@ span.error {
     display: block;
 }
 
-img#sadFaceImg{
+img#sadFaceImg {
     display: block;
     margin: 0 auto;
 }
 
-h2{
+h2 {
     text-align: center;
 }
 
@@ -237,8 +238,19 @@ footer {
     font-size: 20px;
 }
 
-/*Animations & Transitions
-*/
+.accessories .accessory {
+    display: inline-block;
+    background-color: #f3f3f2;
+    width: 20%;
+    padding: 1%;
+    margin: 1%;
+}
+
+.accessories,
+.italic {
+    text-align: center;
+    font-style: italic;
+}
 
 
 @-webkit-keyframes fadeOut {
