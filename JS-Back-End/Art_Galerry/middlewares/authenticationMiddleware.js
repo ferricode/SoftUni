@@ -1,4 +1,3 @@
-const { response } = require('express');
 const jwt = require('../lib/jsonwebtoken');
 const { SECRET } = require('../constants');
 

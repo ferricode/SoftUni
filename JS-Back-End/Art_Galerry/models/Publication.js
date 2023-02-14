@@ -15,7 +15,7 @@ const publicationSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Art picture is required!']
     },
-    certificateOfAuthenticity: {
+    certificate: {
         type: String,
         enum: ['Yes', 'No'],
         required: [true, 'Certificate of authenticity is required']

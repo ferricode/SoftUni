@@ -12,7 +12,7 @@ exports.getErrorMessage = (error) => {
         case 'Error':
             return error.message;
         case 'ValidationError':
-            return; getFirstMongooseError(error);
+            return getFirstMongooseError(error);
         default:
             return error.message;
     }
