@@ -5,5 +5,6 @@ exports.getOne = (publicartionId) => Publication.findById(publicartionId);
 exports.getOneDetailed = (publicartionId) => Publication.findById(publicartionId).populate('author');
 exports.getOneDetailedShared = (publicartionId) => Publication.findById(publicartionId).populate('usersShared');
 exports.create = (publicationData) => Publication.create(publicationData);
+exports.delete = (publicationId) => Publication.findByIdAndDelete(publicationId);
 //exports.update = (publicationId, publicationData) => Publication.findByIdAndUpdate(publicationId);
-exports.update = (publicationId, publicationData) => Publication.updateOne({ _id: publicationId }, { $set: publicationData }, { runValidators: true });
+exports.updateOne = (publicationId, publicationData) => Publication.updateOne({ _id: publicationId }, { $set: publicationData }, { runValidators: true });
