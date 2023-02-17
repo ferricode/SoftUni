@@ -26,4 +26,12 @@ router.get('/forrent', async (req, res) => {
     res.render('housing/forrent', { housings });
 
 });
+router.get('/:housingId/details', async (req, res) => {
+
+    const housings = await housingService.getOne(req.params._id).populate('rentedHome').lean();
+    const tenants = housings.rentedHome?.map(x => x.name).join(', ');
+
+    res.render('housing/details', { housings, tenants });
+
+});
 module.exports = router;
