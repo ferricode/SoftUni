@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const housingService = require('../services/housingService');
+const userService = require('../services/userService');
 const { isAuth } = require('../middlewares/authenticationMiddleware');
 const { getErrorMessage } = require('../utils/errorUtils');
 
@@ -28,10 +29,31 @@ router.get('/forrent', async (req, res) => {
 });
 router.get('/:housingId/details', async (req, res) => {
 
-    const housings = await housingService.getOne(req.params._id).populate('rentedHome').lean();
-    const tenants = housings.rentedHome?.map(x => x.name).join(', ');
+    const housing = await housingService.getOne(req.params.housingId).populate('rentedHome').lean();
+    const isAvailablePieces = housing.availablePieces > 0;
+    const isOwner = housing.owner == req.user?._id;
+    const isRented = housing.rentedHome.some(x => x._id == req.user?._id);
+    console.log(isRented);
+    const tenants = housing.rentedHome?.map(x => x.name).join(', ');
 
-    res.render('housing/details', { housings, tenants });
+    res.render('housing/details', { ...housing, isRented, tenants, isOwner, isAvailablePieces });
 
 });
-module.exports = router;
+router.get('/:housingId/rent', async (req, res) => {
+    const user = userService.getOne(req.user._id);
+    const housing = await housingService.getOne(req.params.housingId);
+
+    if (housing.availablePieces > 0) {
+        housing.availablePieces--;
+        housing.rentedHome.push(req.user._id);
+        await housing.save();
+        if (user._id == housing.owner) {
+            return res.render('housing/details', { ...req.body, error: getErrorMessage(error) });
+        }
+        isrented = true;
+        const tenants = housing.rentedHome?.map(x => x.name).join(', ');
+
+        res.redirect('//:{{_id}}/details', { ...housing, isRented: true, tenants, isOwner: false, isAvailablePieces: false });
+    }
+}),
+    module.exports = router;
