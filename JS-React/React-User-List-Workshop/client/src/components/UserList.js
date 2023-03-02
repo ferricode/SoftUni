@@ -15,9 +15,14 @@ export const UserList = ({
 
         setSelectedUser(user);
     };
+
+    const onClose = () => {
+        setSelectedUser(null);
+    };
+
     return (
         <>
-            {selectedUser && <UserDetails {...selectedUser} />}
+            {selectedUser && <UserDetails {...selectedUser} onClose={onClose} />}
             <div className="table-wrapper">
                 {/* <!-- Overlap components  --> */}
 
