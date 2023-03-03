@@ -1,0 +1,8 @@
+.movie-article {
+    background-color: rgb(221, 203, 208);
+    border-bottom: 2px solid rgb(149, 140, 199);
+    border-top: 2px solid rgb(149, 140, 199);
+    border-left: 2px solid rgb(149, 140, 199);
+    padding-bottom: 10px;
+    padding-left: 10px
+}
