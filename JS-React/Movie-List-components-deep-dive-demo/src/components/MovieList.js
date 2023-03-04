@@ -8,9 +8,10 @@ export default function MovieList({
 
     return [
         <ul>
-            {movies.map(movie => (
-                <li key={movie.id}>
-                    <Movie{...movie}
+            {movies.map((movie) => (
+                <li key={movie.id} >
+                    <Movie
+                        {...movie}
                         onMovieDelete={onMovieDelete}
                         onMovieSelect={onMovieSelect} />
                 </li>

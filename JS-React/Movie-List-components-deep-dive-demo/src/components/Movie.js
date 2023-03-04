@@ -15,11 +15,11 @@ export default function Movie({
 }) {
     useEffect(() => {
         console.log(`Movie ${title} - mounted!`);
-    }, []);
+    }, [title]);
 
     useEffect(() => {
         console.log(`Movie ${title} - updated!`);
-    }, [selected]);
+    }, [selected, title]);
 
     useEffect(() => {
         return () => {
