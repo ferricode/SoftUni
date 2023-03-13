@@ -10,7 +10,7 @@ exports.getHomePage = async (req, res) => {
         cubes = cubes.filter(cube => cube.name.toLowerCase().includes(search.toLowerCase()));
     }
     if (difficultyFrom) {
-        cubes = cubes.filter(cube => cube.difficultyLevel >= difficultyFrom); w;
+        cubes = cubes.filter(cube => cube.difficultyLevel >= difficultyFrom);
     }
     if (difficultyTo) {
         cubes = cubes.filter(cube => cube.difficultyLevel <= difficultyTo);
